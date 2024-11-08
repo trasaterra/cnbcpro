@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive 12-Column Grid</title>
+  <title>Full Width Responsive 12-Column Grid</title>
   <style>
     /* Basic reset for box-sizing */
     *, *::before, *::after {
@@ -16,12 +16,13 @@
       font-family: Arial, sans-serif;
     }
 
-    /* Container to center the grid layout */
-    .container {
+    /* Full-width fluid container */
+    .container-fluid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 1rem;
-      padding: 1rem;
+      width: 100vw; /* Full viewport width */
+      padding: 1rem 0; /* Optional padding for top and bottom */
     }
 
     /* Breakpoints to adjust column layouts */
@@ -114,7 +115,7 @@
 </head>
 <body>
 
-  <div class="container">
+  <div class="container-fluid">
     <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">1</div>
     <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">2</div>
     <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">3</div>
@@ -128,11 +129,6 @@
     <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">11</div>
     <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">12</div>
   </div>
-
-  <script>
-    // Add any JavaScript here if needed for interactive elements.
-    // Example: console.log("JavaScript is embedded within the HTML page!");
-  </script>
 
 </body>
 </html>
