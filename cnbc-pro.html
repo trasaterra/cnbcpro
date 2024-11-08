@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive 12-Column Grid</title>
+  <style>
+    /* Basic reset for box-sizing */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    /* Body styling */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Container to center the grid layout */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    /* Breakpoints to adjust column layouts */
+    /* Extra small (0px and up) */
+    .col-xs-1 { grid-column: span 1; }
+    .col-xs-2 { grid-column: span 2; }
+    .col-xs-3 { grid-column: span 3; }
+    .col-xs-4 { grid-column: span 4; }
+    .col-xs-5 { grid-column: span 5; }
+    .col-xs-6 { grid-column: span 6; }
+    .col-xs-7 { grid-column: span 7; }
+    .col-xs-8 { grid-column: span 8; }
+    .col-xs-9 { grid-column: span 9; }
+    .col-xs-10 { grid-column: span 10; }
+    .col-xs-11 { grid-column: span 11; }
+    .col-xs-12 { grid-column: span 12; }
+
+    /* Small (600px and up) */
+    @media (min-width: 600px) {
+      .col-sm-1 { grid-column: span 1; }
+      .col-sm-2 { grid-column: span 2; }
+      .col-sm-3 { grid-column: span 3; }
+      .col-sm-4 { grid-column: span 4; }
+      .col-sm-5 { grid-column: span 5; }
+      .col-sm-6 { grid-column: span 6; }
+      .col-sm-7 { grid-column: span 7; }
+      .col-sm-8 { grid-column: span 8; }
+      .col-sm-9 { grid-column: span 9; }
+      .col-sm-10 { grid-column: span 10; }
+      .col-sm-11 { grid-column: span 11; }
+      .col-sm-12 { grid-column: span 12; }
+    }
+
+    /* Medium (768px and up) */
+    @media (min-width: 768px) {
+      .col-md-1 { grid-column: span 1; }
+      .col-md-2 { grid-column: span 2; }
+      .col-md-3 { grid-column: span 3; }
+      .col-md-4 { grid-column: span 4; }
+      .col-md-5 { grid-column: span 5; }
+      .col-md-6 { grid-column: span 6; }
+      .col-md-7 { grid-column: span 7; }
+      .col-md-8 { grid-column: span 8; }
+      .col-md-9 { grid-column: span 9; }
+      .col-md-10 { grid-column: span 10; }
+      .col-md-11 { grid-column: span 11; }
+      .col-md-12 { grid-column: span 12; }
+    }
+
+    /* Large (992px and up) */
+    @media (min-width: 992px) {
+      .col-lg-1 { grid-column: span 1; }
+      .col-lg-2 { grid-column: span 2; }
+      .col-lg-3 { grid-column: span 3; }
+      .col-lg-4 { grid-column: span 4; }
+      .col-lg-5 { grid-column: span 5; }
+      .col-lg-6 { grid-column: span 6; }
+      .col-lg-7 { grid-column: span 7; }
+      .col-lg-8 { grid-column: span 8; }
+      .col-lg-9 { grid-column: span 9; }
+      .col-lg-10 { grid-column: span 10; }
+      .col-lg-11 { grid-column: span 11; }
+      .col-lg-12 { grid-column: span 12; }
+    }
+
+    /* Extra large (1200px and up) */
+    @media (min-width: 1200px) {
+      .col-xl-1 { grid-column: span 1; }
+      .col-xl-2 { grid-column: span 2; }
+      .col-xl-3 { grid-column: span 3; }
+      .col-xl-4 { grid-column: span 4; }
+      .col-xl-5 { grid-column: span 5; }
+      .col-xl-6 { grid-column: span 6; }
+      .col-xl-7 { grid-column: span 7; }
+      .col-xl-8 { grid-column: span 8; }
+      .col-xl-9 { grid-column: span 9; }
+      .col-xl-10 { grid-column: span 10; }
+      .col-xl-11 { grid-column: span 11; }
+      .col-xl-12 { grid-column: span 12; }
+    }
+
+    /* Styling for grid items */
+    .col {
+      background-color: #ddd;
+      padding: 1rem;
+      text-align: center;
+      border: 1px solid #bbb;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">1</div>
+    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">2</div>
+    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">3</div>
+    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">4</div>
+    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">5</div>
+    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">6</div>
+    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">7</div>
+    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">8</div>
+    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">9</div>
+    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">10</div>
+    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">11</div>
+    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">12</div>
+  </div>
+
+  <script>
+    // Add any JavaScript here if needed for interactive elements.
+    // Example: console.log("JavaScript is embedded within the HTML page!");
+  </script>
+
+</body>
+</html>
