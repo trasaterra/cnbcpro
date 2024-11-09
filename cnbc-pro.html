@@ -3,131 +3,404 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Full Width Responsive 12-Column Grid</title>
+  <title>Welcome to Pro</title>
+  <link rel="stylesheet" href="https://use.typekit.net/lqz4bbv.css">
   <style>
-    /* Basic reset for box-sizing */
+
+    body {
+      font-family: "proxima-nova", sans-serif;
+    }
+
+    /* Basic reset */
     *, *::before, *::after {
       box-sizing: border-box;
-    }
-
-    /* Body styling */
-    body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      padding: 0;
     }
 
-    /* Full-width fluid container */
+    /* Full-width container */
     .container-fluid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 1rem;
-      width: 100vw; /* Full viewport width */
-      padding: 1rem 0; /* Optional padding for top and bottom */
+      width: 100%;
+      margin: 0 auto;
+      padding: 0; /* Remove any container padding */
     }
 
-    /* Breakpoints to adjust column layouts */
-    /* Extra small (0px and up) */
-    .col-xs-1 { grid-column: span 1; }
-    .col-xs-2 { grid-column: span 2; }
-    .col-xs-3 { grid-column: span 3; }
-    .col-xs-4 { grid-column: span 4; }
-    .col-xs-5 { grid-column: span 5; }
-    .col-xs-6 { grid-column: span 6; }
-    .col-xs-7 { grid-column: span 7; }
-    .col-xs-8 { grid-column: span 8; }
-    .col-xs-9 { grid-column: span 9; }
-    .col-xs-10 { grid-column: span 10; }
-    .col-xs-11 { grid-column: span 11; }
-    .col-xs-12 { grid-column: span 12; }
-
-    /* Small (600px and up) */
-    @media (min-width: 600px) {
-      .col-sm-1 { grid-column: span 1; }
-      .col-sm-2 { grid-column: span 2; }
-      .col-sm-3 { grid-column: span 3; }
-      .col-sm-4 { grid-column: span 4; }
-      .col-sm-5 { grid-column: span 5; }
-      .col-sm-6 { grid-column: span 6; }
-      .col-sm-7 { grid-column: span 7; }
-      .col-sm-8 { grid-column: span 8; }
-      .col-sm-9 { grid-column: span 9; }
-      .col-sm-10 { grid-column: span 10; }
-      .col-sm-11 { grid-column: span 11; }
-      .col-sm-12 { grid-column: span 12; }
+    /* Row styling */
+    .row {
+      display: flex;
+      flex-wrap: wrap;
     }
 
-    /* Medium (768px and up) */
-    @media (min-width: 768px) {
-      .col-md-1 { grid-column: span 1; }
-      .col-md-2 { grid-column: span 2; }
-      .col-md-3 { grid-column: span 3; }
-      .col-md-4 { grid-column: span 4; }
-      .col-md-5 { grid-column: span 5; }
-      .col-md-6 { grid-column: span 6; }
-      .col-md-7 { grid-column: span 7; }
-      .col-md-8 { grid-column: span 8; }
-      .col-md-9 { grid-column: span 9; }
-      .col-md-10 { grid-column: span 10; }
-      .col-md-11 { grid-column: span 11; }
-      .col-md-12 { grid-column: span 12; }
-    }
-
-    /* Large (992px and up) */
-    @media (min-width: 992px) {
-      .col-lg-1 { grid-column: span 1; }
-      .col-lg-2 { grid-column: span 2; }
-      .col-lg-3 { grid-column: span 3; }
-      .col-lg-4 { grid-column: span 4; }
-      .col-lg-5 { grid-column: span 5; }
-      .col-lg-6 { grid-column: span 6; }
-      .col-lg-7 { grid-column: span 7; }
-      .col-lg-8 { grid-column: span 8; }
-      .col-lg-9 { grid-column: span 9; }
-      .col-lg-10 { grid-column: span 10; }
-      .col-lg-11 { grid-column: span 11; }
-      .col-lg-12 { grid-column: span 12; }
-    }
-
-    /* Extra large (1200px and up) */
-    @media (min-width: 1200px) {
-      .col-xl-1 { grid-column: span 1; }
-      .col-xl-2 { grid-column: span 2; }
-      .col-xl-3 { grid-column: span 3; }
-      .col-xl-4 { grid-column: span 4; }
-      .col-xl-5 { grid-column: span 5; }
-      .col-xl-6 { grid-column: span 6; }
-      .col-xl-7 { grid-column: span 7; }
-      .col-xl-8 { grid-column: span 8; }
-      .col-xl-9 { grid-column: span 9; }
-      .col-xl-10 { grid-column: span 10; }
-      .col-xl-11 { grid-column: span 11; }
-      .col-xl-12 { grid-column: span 12; }
-    }
-
-    /* Styling for grid items */
+    /* Column styling */
     .col {
       background-color: #ddd;
-      padding: 1rem;
       text-align: center;
       border: 1px solid #bbb;
+      padding: 15px; /* Optional column padding */
     }
+
+    /* Responsive column widths */
+    /* Extra small (default mobile) */
+    .col-1 { flex: 0 0 8.33%; max-width: 8.33%; }
+    .col-2 { flex: 0 0 16.66%; max-width: 16.66%; }
+    .col-3 { flex: 0 0 25%; max-width: 25%; }
+    .col-4 { flex: 0 0 33.33%; max-width: 33.33%; }
+    .col-5 { flex: 0 0 41.66%; max-width: 41.66%; }
+    .col-6 { flex: 0 0 50%; max-width: 50%; }
+    .col-7 { flex: 0 0 58.33%; max-width: 58.33%; }
+    .col-8 { flex: 0 0 66.66%; max-width: 66.66%; }
+    .col-9 { flex: 0 0 75%; max-width: 75%; }
+    .col-10 { flex: 0 0 83.33%; max-width: 83.33%; }
+    .col-11 { flex: 0 0 91.66%; max-width: 91.66%; }
+    .col-12 { flex: 0 0 100%; max-width: 100%; }
+
+
+    /*Styles*/
+    .brand-green-bg {
+      background: #047E2E;
+    }
+    .brand-green {
+      color: #047E2E;
+    }
+
+    /*Type Styles*/
+
+    .h2-pro {
+      font-size:28px;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+    .h3-pro {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.22;
+    }
+    .h4-pro {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.6;
+      letter-spacing: 0.025em;
+    }
+    .p-pro {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.222; 
+    }
+    .p-pro-sub {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.222;
+    }
+    .number {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .basic-tile-text {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.22;
+    }
+    .essentials-tile-text {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.22;
+    }
+    .see-more-link {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.22;
+    }
+    .target-link {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.22;
+      letter-spacing: 0.143em; 
+    }
+    .pro-tip-label {
+      font-size: 14.46px;
+      font-weight: 700;
+      line-height: 1.22;
+    }
+    .p-pro-tip {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+    .tool-tip {
+      font-size: 10.35px;
+      font-weight: 600;
+      line-height: 1.22;
+    }
+    .tip-tag {
+      font-size: 10.39px;
+      font-weight: 700;
+      line-height: 1.218;
+    }
+    .h5-pro {
+      font-size: 19.84px;
+      font-weight: 700;
+    }
+    .tip-text {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .carousel-name {
+      font-size: 13.6px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .carousel-title {
+      font-size: 8px;
+      font-weight: 600;
+      line-height: 1.218;
+    }
+
+
+
+    /* Hero  */
+    .hero-banner {
+      background-color: #047E2E;
+      position: relative;
+      overflow: hidden;
+      background-image: url('assets/charts.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 50px 30px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    .hero-banner-filter {
+      background: linear-gradient(360deg, rgba(1, 91, 32, 0.8) 0%, rgba(0, 192, 66, 0.8) 107.88%);
+      background-blend-mode: overlay;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color:#ffffff;
+      font-size:24px;
+      font-weight: 800;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 15px;
+    }
+
+    .pro-tag {
+      height:36px;
+      width: auto;
+      height: 1em;
+      margin-left:10px;
+    }
+
+    .hero-message {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      color:#ffffff;
+      font-size: 18px;
+      letter-spacing: .007em;
+      line-height: 1.22;
+    }
+
+    .hero-br {
+      display: none;
+    }
+
+
+    /* Small screens (576px and up) */
+    @media (min-width: 576px) {
+      .col-sm-1 { flex: 0 0 8.33%; max-width: 8.33%; }
+      .col-sm-2 { flex: 0 0 16.66%; max-width: 16.66%; }
+      .col-sm-3 { flex: 0 0 25%; max-width: 25%; }
+      .col-sm-4 { flex: 0 0 33.33%; max-width: 33.33%; }
+      .col-sm-6 { flex: 0 0 50%; max-width: 50%; }
+      .col-sm-12 { flex: 0 0 100%; max-width: 100%; }
+    }
+
+    /* Medium screens (768px and up) */
+    @media (min-width: 768px) {
+      .col-md-1 { flex: 0 0 8.33%; max-width: 8.33%; }
+      .col-md-3 { flex: 0 0 25%; max-width: 25%; }
+      .col-md-4 { flex: 0 0 33.33%; max-width: 33.33%; }
+      .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+      .col-md-12 { flex: 0 0 100%; max-width: 100%; }
+    }
+
+    /* Large screens (992px and up) */
+    @media (min-width: 992px) {
+      .col-lg-1 { flex: 0 0 8.33%; max-width: 8.33%; }
+      .col-lg-3 { flex: 0 0 25%; max-width: 25%; }
+      .col-lg-4 { flex: 0 0 33.33%; max-width: 33.33%; }
+      .col-lg-6 { flex: 0 0 50%; max-width: 50%; }
+      .col-lg-12 { flex: 0 0 100%; max-width: 100%; }
+
+      /* Styles */
+
+      /*Type Styles*/
+
+      .h2-pro {
+        font-size:54px;
+        line-height: 1.111em;
+      }
+      .h3-pro {
+        font-size: 34px;
+        line-height: 1.218;
+      }
+      .h4-pro {
+        font-size: 34px;
+        line-height: 1.218;
+      }
+      .p-pro {
+        font-size: 24px;
+      }
+      .number {
+        font-size: 40px;
+      }
+      .basic-tile-text {
+        font-size: 22px;
+      }
+      .essentials-tile-text {
+        font-size: 18px;
+      }
+      .see-more-link {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.22;
+      }
+      .p-pro-sub {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.222;
+      }
+      .target-link {
+        font-size: 18px;
+      }
+      .pro-tip-label {
+      }
+      .p-pro-tip {
+        font-size: 20px;
+      }
+      .tool-tip {
+        font-size: 12px;
+      }
+      .tip-tag {
+        font-size: 12px;
+        line-height: 1.218;
+      }
+      .h5-pro {
+        font-size: 23px;
+        font-weight: 700;
+        line-height: 1.218
+      }
+      .tip-text {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .carousel-name {
+        font-size: 27px;
+      }
+      .carousel-title {
+        font-size: 14px;
+      }
+
+
+
+
+
+      /* Hero */
+      .hero-banner {
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        padding:70px 50px;
+      }
+      .hero-header {
+        font-size:87px;
+        margin-bottom: 20px;
+      }
+      .pro-tag {
+        height:89px;
+        width: auto;
+        margin-left:20px;
+      }
+      .hero-message {
+        font-size:24px;
+      }
+      .hero-br {
+        display: inherit;
+      }
+
+    }
+
+    /* Extra-large screens (1200px and up) */
+    @media (min-width: 1200px) {
+      .col-xl-1 { flex: 0 0 8.33%; max-width: 8.33%; }
+      .col-xl-2 { flex: 0 0 16.66%; max-width: 16.66%; }
+      .col-xl-3 { flex: 0 0 25%; max-width: 25%; }
+      .col-xl-4 { flex: 0 0 33.33%; max-width: 33.33%; }
+      .col-xl-6 { flex: 0 0 50%; max-width: 50%; }
+      .col-xl-12 { flex: 0 0 100%; max-width: 100%; }
+    }
+
+    
+
   </style>
 </head>
 <body>
 
+  <div class="hero-banner" id="pro-hero">
+    <div class="hero-banner-filter"></div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+           <h1 class="hero-header">Welcome to Pro <img class="pro-tag" src="assets/pro-tag.svg"></h1>
+           <p class="hero-message">Thank you for subscribing and joining the Pro family. <br class="hero-br">Below is all you need to get the most of your experience.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="" id="getting-started">
+    <div class=""></div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+           <h1 class="hero-header">Welcome to Pro <img class="pro-tag" src="assets/pro-tag.svg"></h1>
+           <p class="hero-message">Thank you for subscribing and joining the Pro family. <br class="hero-br">Below is all you need to get the most of your experience.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="container-fluid">
-    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">1</div>
-    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">2</div>
-    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">3</div>
-    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">4</div>
-    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">5</div>
-    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">6</div>
-    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">7</div>
-    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">8</div>
-    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">9</div>
-    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">10</div>
-    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">11</div>
-    <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">12</div>
+    <div class="row">
+      <!-- Example of a full 12-column layout on extra-large screens -->
+      <div class="col col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">1</div>
+      <div class="col col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">2</div>
+      <div class="col col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">3</div>
+      <div class="col col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">4</div>
+      <div class="col col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">5</div>
+      <div class="col col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">6</div>
+      <div class="col col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">7</div>
+      <div class="col col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">8</div>
+      <div class="col col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">9</div>
+      <div class="col col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">10</div>
+      <div class="col col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">11</div>
+      <div class="col col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">12</div>
+    </div>
   </div>
 
 </body>
