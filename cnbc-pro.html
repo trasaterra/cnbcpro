@@ -24,6 +24,12 @@
       margin: 0 auto;
       padding: 0; /* Remove any container padding */
     }
+    .container {
+      width: 100%;
+      margin: 0 auto;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
 
     /* Row styling */
     .row {
@@ -33,10 +39,7 @@
 
     /* Column styling */
     .col {
-      background-color: #ddd;
-      text-align: center;
-      border: 1px solid #bbb;
-      padding: 15px; /* Optional column padding */
+      padding: 6px;
     }
 
     /* Responsive column widths */
@@ -69,6 +72,8 @@
       font-size:28px;
       font-weight: 800;
       line-height: 1.4;
+      margin-top:0;
+      margin-bottom: 12px;
     }
     .h3-pro {
       font-size: 24px;
@@ -80,6 +85,7 @@
       font-weight: 700;
       line-height: 1.6;
       letter-spacing: 0.025em;
+      margin-bottom: 8px;
     }
     .p-pro {
       font-size: 16px;
@@ -159,6 +165,101 @@
       line-height: 1.218;
     }
 
+    /* Modules  */
+    .pro-section {
+      margin-bottom: 50px;
+    }
+
+    /* Basics Module  */
+
+    .basics-module {
+      position: relative;
+      border-radius: 12px;
+      background: linear-gradient(65deg, #047E2E 29.59%, #00C042 155.92%), #047E2E;
+      box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+      color:#ffffff;
+      padding:18px;
+      display: block;
+      text-decoration: none;
+    }
+     .basics-module br {
+        display: none;
+      }
+    .basics-module .basics-arrow {
+      position: absolute;
+      top:25px;
+      right:18px;
+    }
+    .basics-module .basic-tile-text {
+      display: flex;
+      align-items: center;
+    }
+
+    .basics-module .number {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    .basics-module .basic-text {
+      display: inline-block;
+    }
+
+     /* Essentials Module  */
+
+    .essentials-module {
+      border-radius: 12px;
+      border: 1px solid #ECECEC;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+      padding:10px;
+    }
+    .essentials-module br {
+      display: none;
+    }
+    .essentials-module .essentials-tile-text {
+      display: flex;
+      align-items: center;
+    }
+    .essentials-module .essentials-icon {
+      margin-right: 10px;
+      width:23px;
+      height:auto;
+    }
+
+    .essentials-mobile-window {
+      position: relative;
+      left:0;
+      right:0;
+      width:100%;
+      height:230px;
+      overflow: scroll;
+      transition: height 0.3s ease;
+    }
+    .essentials-mobile-window.show-all {
+      height: auto;
+      margin-bottom: 35px;
+    }
+
+    .essentials-bottom-gradient {
+      position: relative;     
+      top:-60px;
+      left:0;
+      right:0;
+      width: 100%;
+      height:67px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #FFF 67%);
+      text-align: center;
+    }
+    .essentials-bottom-gradient .see-more-link {
+      position: absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      text-decoration: none;
+      color: #171717;
+    }
+    .rotate {
+      transform: rotate(180deg);
+      transition: transform 0.3s ease;
+    }
 
 
     /* Hero  */
@@ -222,6 +323,9 @@
 
     /* Small screens (576px and up) */
     @media (min-width: 576px) {
+      .container {
+        max-width: 540px;
+      }
       .col-sm-1 { flex: 0 0 8.33%; max-width: 8.33%; }
       .col-sm-2 { flex: 0 0 16.66%; max-width: 16.66%; }
       .col-sm-3 { flex: 0 0 25%; max-width: 25%; }
@@ -232,6 +336,9 @@
 
     /* Medium screens (768px and up) */
     @media (min-width: 768px) {
+      .container {
+        max-width: 720px;
+      }
       .col-md-1 { flex: 0 0 8.33%; max-width: 8.33%; }
       .col-md-3 { flex: 0 0 25%; max-width: 25%; }
       .col-md-4 { flex: 0 0 33.33%; max-width: 33.33%; }
@@ -241,6 +348,12 @@
 
     /* Large screens (992px and up) */
     @media (min-width: 992px) {
+      .container {
+        max-width: 960px;
+      }
+      .col {
+        padding: 12px;
+      }
       .col-lg-1 { flex: 0 0 8.33%; max-width: 8.33%; }
       .col-lg-3 { flex: 0 0 25%; max-width: 25%; }
       .col-lg-4 { flex: 0 0 33.33%; max-width: 33.33%; }
@@ -254,6 +367,7 @@
       .h2-pro {
         font-size:54px;
         line-height: 1.111em;
+        margin-bottom: 30px;
       }
       .h3-pro {
         font-size: 34px;
@@ -262,6 +376,7 @@
       .h4-pro {
         font-size: 34px;
         line-height: 1.218;
+        margin-bottom: 24px;
       }
       .p-pro {
         font-size: 24px;
@@ -317,9 +432,70 @@
         font-size: 14px;
       }
 
+      .text-center-lg {
+        text-align: center;
+      }
 
 
+      /* Pro Modules */
 
+      /*Basics Module*/
+
+      .basics-module {
+        padding:18px;
+        height:150px;
+        background: linear-gradient(65deg, #047E2E 29.59%, #00C042 155.92%), #047E2E;
+        box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+      }
+      .basics-module br {
+        display: inherit;
+      }
+      .basics-module .basics-arrow {        
+        top:25px;
+        right:25px;
+      }
+      .basics-module .basic-tile-text {
+        display: inherit;
+        align-items: inherit;
+      }
+
+      .basics-module .number {
+        display: block;
+        margin-right: 10px;
+        width: 100%;
+      }
+      .basics-module .basic-text {
+        display: inline-block;
+      }
+
+      /*Essentials Module*/
+
+      .essentials-module {
+        padding:16px;
+        height:125px;
+      }
+      .essentials-module br {
+        display: inherit;
+      }
+      .essentials-module .essentials-tile-text {
+        display: inherit;
+        align-items: inherit;
+      }
+      .essentials-module .essentials-icon {
+        width:32px;
+        display: block;
+        margin-bottom: 10px;
+      }
+      .essentials-mobile-window {
+        height: auto;
+        width:100%;
+        left:0;
+        right:0;
+        overflow: auto;
+      }
+      .essentials-bottom-gradient {
+        display: none;
+      }
 
       /* Hero */
       .hero-banner {
@@ -347,12 +523,25 @@
 
     /* Extra-large screens (1200px and up) */
     @media (min-width: 1200px) {
+      .container {
+        max-width: 1140px;
+      }
       .col-xl-1 { flex: 0 0 8.33%; max-width: 8.33%; }
       .col-xl-2 { flex: 0 0 16.66%; max-width: 16.66%; }
       .col-xl-3 { flex: 0 0 25%; max-width: 25%; }
       .col-xl-4 { flex: 0 0 33.33%; max-width: 33.33%; }
       .col-xl-6 { flex: 0 0 50%; max-width: 50%; }
       .col-xl-12 { flex: 0 0 100%; max-width: 100%; }
+
+      .pro-section {
+        
+      }
+    }
+
+    @media (min-width: 1400px) {
+      .container {
+        max-width: 1320px;
+      }
     }
 
     
@@ -361,29 +550,191 @@
 </head>
 <body>
 
-  <div class="hero-banner" id="pro-hero">
+  <div class="pro-section hero-banner" id="pro-hero">
     <div class="hero-banner-filter"></div>
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-           <h1 class="hero-header">Welcome to Pro <img class="pro-tag" src="assets/pro-tag.svg"></h1>
+           <h1 class="hero-header">Welcome to Pro <img class="pro-tag" src="assets/pro-tag.svg" alt="CNBC PRO Logo"></h1>
            <p class="hero-message">Thank you for subscribing and joining the Pro family. <br class="hero-br">Below is all you need to get the most of your experience.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="" id="getting-started">
-    <div class=""></div>
-    <div class="container-fluid">
+  <div class="pro-section" id="basics">
+    <div class="container">
       <div class="row">
-        <div class="col-12">
-           <h1 class="hero-header">Welcome to Pro <img class="pro-tag" src="assets/pro-tag.svg"></h1>
-           <p class="hero-message">Thank you for subscribing and joining the Pro family. <br class="hero-br">Below is all you need to get the most of your experience.</p>
+        <div class="col col-12">
+          <h2 class="h2-pro text-center-lg">Getting Started</h2>
+          <h4 class="h4-pro text-center-lg">The Basics</h4>
+        </div>
+
+
+        <div class="col col-12 col-lg-3"> 
+          <a class="basics-module" href="#">
+            <img class="basics-arrow" src="assets/up-arrow.svg" alt="Arrow Icon">
+            <p class="basic-tile-text">
+              <span class="number">1</span> <span class="basic-text">Download the <br>CNBC App</span>
+            </p>
+          </a>
+        </div>
+
+        <div class="col col-12 col-lg-3"> 
+          <a class="basics-module" href="#">
+            <img class="basics-arrow" src="assets/up-arrow.svg" alt="Arrow Icon">
+            <p class="basic-tile-text">
+              <span class="number">2</span> <span class="basic-text">Sync your portfolio <br>with Plaid</span>
+            </p>
+          </a>
+        </div>
+
+        <div class="col col-12 col-lg-3"> 
+          <a class="basics-module" href="#">
+            <img class="basics-arrow" src="assets/up-arrow.svg" alt="Arrow Icon">
+            <p class="basic-tile-text">
+              <span class="number">3</span> <span class="basic-text">Customize your <br>markets banner</span>
+            </p>
+          </a>
+        </div>
+
+        <div class="col col-12 col-lg-3"> 
+          <a class="basics-module" href="#">
+            <img class="basics-arrow" src="assets/up-arrow.svg" alt="Arrow Icon">
+            <p class="basic-tile-text">
+              <span class="number">4</span> <span class="basic-text">Create a custom <br>Watchlist</span>
+            </p>
+          </a>
+        </div>
+
+
         </div>
       </div>
     </div>
   </div>
+
+
+ <div class="pro-section" id="essentials">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <h4 class="h4-pro text-center-lg">Everyday Essentials</h4>
+      </div>
+    </div>
+
+
+      <div class="row essentials-mobile-window">
+
+        <div class="col col-12 col-lg-3"> 
+          <div class="essentials-module">
+            <p class="essentials-tile-text">
+              <img class="essentials-icon" src="assets/essentials-watch.svg" alt="Watch Icon"> 
+              <span class="essentials-text">Watch Interviews & <br>Pro Exclusives</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="col col-12 col-lg-3"> 
+          <div class="essentials-module">
+            <p class="essentials-tile-text">
+              <img class="essentials-icon" src="assets/essentials-newsletters.svg" alt="Newsletters Icon"> 
+              <span class="essentials-text">Newsletters from pre <br>to post-market</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="col col-12 col-lg-3"> 
+          <div class="essentials-module">
+            <p class="essentials-tile-text">
+              <img class="essentials-icon" src="assets/essentials-portfolio.svg" alt="Portfolio Icon"> <span class="essentials-text">Review your Portfolio <br>movement</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="col col-12 col-lg-3"> 
+          <div class="essentials-module">
+            <p class="essentials-tile-text">
+              <img class="essentials-icon" src="assets/essentials-alerts.svg" alt="Alerts Icon"> <span class="essentials-text">Alerts on APP & Web</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="col col-12 col-lg-3"> 
+          <div class="essentials-module">
+            <p class="essentials-tile-text">
+              <img class="essentials-icon" src="assets/essentials-breaking.svg" alt="Breaking Icon"> <span class="essentials-text">Breaking news and <br>expert analysis calls</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="col col-12 col-lg-3"> 
+          <div class="essentials-module">
+            <p class="essentials-tile-text">
+              <img class="essentials-icon" src="assets/essentials-livestream.svg" alt="Livestream Icon"> <span class="essentials-text">Watch the Livestream <br>with Market data</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="col col-12 col-lg-3"> 
+          <div class="essentials-module">
+            <p class="essentials-tile-text">
+              <img class="essentials-icon" src="assets/essentials-monitor.svg" alt="Monitor Icon"> <span class="essentials-text">Monitor your <br>screeners</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="col col-12 col-lg-3"> 
+          <div class="essentials-module">
+            <p class="essentials-tile-text">
+              <img class="essentials-icon" src="assets/essentials-follow.svg" alt="Follow Icon"> <span class="essentials-text">Follow stocks in your <br>markets banner</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-col-12">
+
+        <div class="essentials-bottom-gradient">
+          <a class="see-more-link" href="#">See More <img src="assets/see-more-link.svg"></a>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  const seeMoreLink = document.querySelector(".see-more-link");
+  const essentialsWindow = document.querySelector(".essentials-mobile-window");
+  const svgIcon = seeMoreLink.querySelector("img");
+
+  seeMoreLink.addEventListener("click", function(event) {
+    event.preventDefault(); // Prevents page jump
+
+    essentialsWindow.classList.toggle("show-all"); // Toggles full view
+
+    // Toggle link text and icon rotation
+    if (essentialsWindow.classList.contains("show-all")) {
+      seeMoreLink.textContent = "See Less ";
+      seeMoreLink.appendChild(svgIcon); // Keep the icon after the text
+      svgIcon.classList.add("rotate");
+    } else {
+      seeMoreLink.textContent = "See More ";
+      seeMoreLink.appendChild(svgIcon); // Keep the icon after the text
+      svgIcon.classList.remove("rotate");
+    }
+  });
+});
+
+</script>
+
+
+
+
 
   <div class="container-fluid">
     <div class="row">
