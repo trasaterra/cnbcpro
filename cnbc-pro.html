@@ -38,6 +38,13 @@
       margin:0 25px;
       padding:10px 0;
     }
+    .green-container {
+      max-width: 1400px;
+      margin:0 25px;
+      padding:10px 0;
+      border-radius: 10px;
+      background: rgba(4, 126, 46, 0.05);
+    }
 
     .hide-on-mobile {
       display: none;
@@ -413,6 +420,33 @@
     }
 
 
+    /*Pro Tip Section*/
+
+    .pro-tip-img {
+      width: 100%;
+      height: auto;
+      border-radius: 8.8px;
+      background: #FFF;
+      box-shadow: 0px 0px 7.746px 0px rgba(0, 0, 0, 0.10);
+    }
+    .pro-tip-label {
+      background-color:#CDE5D5;
+      border-radius: 4px;
+      padding:5px 8px;
+      color: #047E2E;
+      font-size: 14px;
+      margin-top: 0;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .pro-tip-label img {
+      display: inline-block;
+      margin-bottom: -5px;
+      width: 16px;
+      height: auto;
+    }
+
+
     /* Small screens (576px and up) */
     @media (min-width: 576px) {
       .container {
@@ -484,6 +518,11 @@
         padding:64px;
         margin-left:auto;
         margin-right:auto;
+      }
+      .green-container {
+        max-width: 589px;
+        margin-left:auto;
+        margin-right: auto;
       }
       .col {
         padding: 12px;
@@ -1071,6 +1110,21 @@
   });
 </script>
 
+
+
+ <div class="pro-section green-container" id="pro-tip">
+  <div class="container">
+    <div class="row">
+      <div class="col col-md-6"><img class="pro-tip-img" src="assets/pro-tip.jpg"></div>
+      <div class="col col-md-6"><span class="pro-tip-label"><img src="assets/lightbulb.svg"> Pro Tip</span>
+        <p class="tip-text">
+          At the bottom of quote pages, get analyst consensus and price targets from experts. 
+        </p>
+      </div>
+      
+    </div>
+  </div>
+</div>
 
 
 
