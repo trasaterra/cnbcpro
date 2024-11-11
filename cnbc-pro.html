@@ -196,8 +196,7 @@
       width: 100%;
       padding-top: 56.25%;
       margin-bottom: 5px;
-      border-radius: 5px;
-      box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.10);
+      
     }
     .video-container .play-btn {
       position: absolute;
@@ -230,6 +229,11 @@
       left: 0;
       width: 100%;
       height: 100%;
+      width: 100%;      
+      object-fit: cover;
+      object-position: top; 
+      border-radius: 5px;
+      box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.10);
     }
 
     /* Modules  */
@@ -916,7 +920,7 @@
           My Portfolio
         </h3>
         <div class="video-container video-container-mobile">
-          <video class="pro-video" id="my-portfolio-mobile" muted playsinline loop>
+          <video class="pro-video" id="my-portfolio-mobile" muted playsinline loop poster="assets/portfolio-poster.jpg">
             <source src="https://dl.dropboxusercontent.com/s/uxh7ocin4p6t516/whitewithfear720.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -934,7 +938,7 @@
       <div class="col-xl-1"></div>
       <div class="col col-12 col-lg-8 col-xl-7">
         <div class="video-container video-container-desk">
-          <video class="pro-video" id="my-portfolio" muted playsinline loop>
+          <video class="pro-video" id="my-portfolio" muted playsinline loop poster="assets/portfolio-poster.jpg">
             <source src="https://dl.dropboxusercontent.com/s/uxh7ocin4p6t516/whitewithfear720.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -949,7 +953,7 @@
     <div class="row hide-on-desk">
       <div class="col col-12 col-lg-4 col-xl-4">
         <h3 class="h3-pro">
-          <img class="p-pro-icon" class="essentials-icon" src="assets/essentials-portfolio.svg" alt="Portfolio Icon"> 
+          <img class="p-pro-icon" class="essentials-icon" src="assets/essentials-monitor.svg" alt="Portfolio Icon"> 
           My Portfolio
         </h3>
       </div>
@@ -958,7 +962,7 @@
     <div class="row">
       <div class="col col-12 col-lg-8 col-xl-7">
         <div class="video-container video-container">
-          <video class="pro-video" id="stock-video" muted playsinline loop>
+          <video class="pro-video" id="stock-video" muted playsinline loop poster="assets/stock-screener-poster.jpg">
             <source src="https://dl.dropboxusercontent.com/s/uxh7ocin4p6t516/whitewithfear720.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -989,7 +993,7 @@
           Watchlist
         </h3>
         <div class="video-container video-container-mobile">
-          <video class="pro-video" id="watchlist-video-mobile" muted playsinline loop>
+          <video class="pro-video" id="watchlist-video-mobile" muted playsinline loop poster="assets/watchlist-poster.jpg">
             <source src="https://dl.dropboxusercontent.com/s/uxh7ocin4p6t516/whitewithfear720.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -1006,7 +1010,7 @@
       <div class="col-xl-1"></div>
       <div class="col col-12 col-lg-8 col-xl-7">
         <div class="video-container video-container-desk">
-          <video class="pro-video" id="watchlist-video-desk" muted playsinline loop>
+          <video class="pro-video" id="watchlist-video-desk" muted playsinline loop poster="assets/watchlist-poster.jpg">
             <source src="https://dl.dropboxusercontent.com/s/uxh7ocin4p6t516/whitewithfear720.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
