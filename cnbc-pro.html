@@ -45,6 +45,14 @@
       border-radius: 10px;
       background: rgba(4, 126, 46, 0.05);
     }
+    .dark-green-container {
+      border-radius: 20px;
+      background: #047E2E;
+      max-width: 1400px;
+      margin:0 25px;
+      padding:10px 0;
+      color: #ffffff;
+    }
 
     .hide-on-mobile {
       display: none;
@@ -119,6 +127,7 @@
       font-size: 16px;
       font-weight: 400;
       line-height: 1.222; 
+      margin-bottom: 16px;
     }
     .p-pro-sub {
       font-size: 16px;
@@ -202,7 +211,7 @@
       position: relative;
       width: 100%;
       padding-top: 56.25%;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
       
     }
     .video-container .play-btn {
@@ -446,6 +455,12 @@
       height: auto;
     }
 
+     /*Customize*/
+
+     .target-link-white {
+      color: #ffffff;
+     }
+
 
     /* Small screens (576px and up) */
     @media (min-width: 576px) {
@@ -470,17 +485,111 @@
       .col-md-4 { flex: 0 0 33.33%; max-width: 33.33%; }
       .col-md-6 { flex: 0 0 50%; max-width: 50%; }
       .col-md-12 { flex: 0 0 100%; max-width: 100%; }
-    }
+    
+      .text-center-md {
+        text-align: center;
+      }
 
-    /* Large screens (992px and up) */
-    @media (min-width: 992px) {
+      .hero-header {
+        font-size:50px;
+        margin-bottom: 20px;
+      }
 
+      .h2-pro {
+        font-size:40px;
+        margin-bottom: 24px;
+      }
+      .h4-pro {
+        font-size: 32px;
+      }
+      .p-pro {
+        font-size: 24px;
+      }
+       #essentials.pro-section {
+        margin-bottom: 50px;
+      }
+      .essentials-bottom-gradient {
+        display: none;
+      }
+      .basic-tile-text {
+        font-size: 18px;
+      }
+      .essentials-tile-text {
+        font-size: 18px;
+      }
+      .essentials-module {
+        padding:16px 20px;
+        height: 80px;
+        display: flex;
+      }
+      .essentials-mobile-window {
+        height: auto;
+      }
+      .basics-module .number {
+        display: block;
+        margin-right: 10px;
+        width: 100%;
+      }
+      .basics-module .basic-text {
+        display: block;
+        width: 100%;
+      }
+      .basics-module .basic-tile-text {
+        display: inherit;
+      }
+
+      .basics-module br {
+        display: inherit;
+      }
+      .gray-container {
+        padding:32px;
+      }
+      .video-container-mobile {
+        display: none;
+      }
+      .video-container-desk {
+        display: inherit;
+      }
+      .pro-tools-hr {
+        opacity: 0;
+      }
+      #pro-tools.pro-section .p-pro-icon {
+        width:40px;
+        height: auto;
+        display: block;
+        margin-top:0;
+        margin-bottom: 8px;
+      }
+      .pro-tools-grid .col {
+        padding:16px;
+      }
       .hide-on-desk {
         display: none;
       }
       .show-on-desk {
         display: inherit;
       }
+      .order-first-md {
+        order: -1; /* First in row */
+      }
+
+      .order-last-md {
+        order: 1; /* Last in row */
+      }
+      .green-container {
+        max-width: 472px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+
+
+    }
+
+    /* Large screens (992px and up) */
+    @media (min-width: 992px) {
+
+     
       .video-container {
         margin-bottom: 50px;
       }
@@ -493,14 +602,6 @@
       }
       .video-container .play-btn img {
         width:38px;
-      }
-
-      .video-container-mobile {
-        display: none;
-      }
-      .video-container-desk {
-        display: inherit;
-
       }
       
       .order-first-lg {
@@ -631,9 +732,7 @@
         background: linear-gradient(65deg, #047E2E 29.59%, #00C042 155.92%), #047E2E;
         box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
       }
-      .basics-module br {
-        display: inherit;
-      }
+      
       .basics-module .basics-arrow {        
         top:25px;
         right:25px;
@@ -643,11 +742,7 @@
         align-items: inherit;
       }
 
-      .basics-module .number {
-        display: block;
-        margin-right: 10px;
-        width: 100%;
-      }
+      
       .basics-module .basic-text {
         display: inline-block;
       }
@@ -657,6 +752,7 @@
       .essentials-module {
         padding:16px;
         height:125px;
+        display: inherit;
       }
       .essentials-module br {
         display: inherit;
@@ -677,9 +773,7 @@
         right:0;
         overflow: auto;
       }
-      .essentials-bottom-gradient {
-        display: none;
-      }
+      
 
       /*Pro Tools*/
       #pro-tools.pro-section .p-pro-icon {
@@ -695,9 +789,6 @@
        #my-portfolio {
         display: inherit;
       }
-      .pro-tools-hr {
-        opacity: 0;
-      }
 
 
       /* Hero */
@@ -707,7 +798,7 @@
         padding:70px 50px;
       }
       .hero-header {
-        font-size:87px;
+        font-size:85px;
         margin-bottom: 20px;
       }
       .pro-tag {
@@ -775,12 +866,12 @@
     <div class="container">
       <div class="row">
         <div class="col col-12">
-          <h2 class="h2-pro text-center-lg">Getting Started</h2>
-          <h4 class="h4-pro text-center-lg">The Basics</h4>
+          <h2 class="h2-pro text-center-md">Getting Started</h2>
+          <h4 class="h4-pro text-center-md">The Basics</h4>
         </div>
 
 
-        <div class="col col-12 col-lg-3"> 
+        <div class="col col-12 col-md-6 col-lg-3"> 
           <a class="basics-module" href="#">
             <img class="basics-arrow" src="assets/up-arrow.svg" alt="Arrow Icon">
             <p class="basic-tile-text">
@@ -789,29 +880,32 @@
           </a>
         </div>
 
-        <div class="col col-12 col-lg-3"> 
+        <div class="col col-12 col-md-6 col-lg-3"> 
           <a class="basics-module" href="#">
             <img class="basics-arrow" src="assets/up-arrow.svg" alt="Arrow Icon">
             <p class="basic-tile-text">
-              <span class="number">2</span> <span class="basic-text">Sync your portfolio <br>with Plaid</span>
+              <span class="number">2</span> 
+              <span class="basic-text">Sync your portfolio <br>with Plaid</span>
             </p>
           </a>
         </div>
 
-        <div class="col col-12 col-lg-3"> 
+        <div class="col col-12 col-md-6 col-lg-3"> 
           <a class="basics-module" href="#">
             <img class="basics-arrow" src="assets/up-arrow.svg" alt="Arrow Icon">
             <p class="basic-tile-text">
-              <span class="number">3</span> <span class="basic-text">Customize your <br>markets banner</span>
+              <span class="number">3</span> 
+              <span class="basic-text">Customize your <br>markets banner</span>
             </p>
           </a>
         </div>
 
-        <div class="col col-12 col-lg-3"> 
+        <div class="col col-12 col-md-6 col-lg-3"> 
           <a class="basics-module" href="#">
             <img class="basics-arrow" src="assets/up-arrow.svg" alt="Arrow Icon">
             <p class="basic-tile-text">
-              <span class="number">4</span> <span class="basic-text">Create a custom <br>Watchlist</span>
+              <span class="number">4</span> 
+              <span class="basic-text">Create a custom <br>Watchlist</span>
             </p>
           </a>
         </div>
@@ -827,14 +921,14 @@
   <div class="container">
     <div class="row">
       <div class="col col-12">
-        <h4 class="h4-pro text-center-lg">Everyday Essentials</h4>
+        <h4 class="h4-pro text-center-md">Everyday Essentials</h4>
       </div>
     </div>
 
 
       <div class="row essentials-mobile-window">
 
-        <div class="col col-12 col-lg-3"> 
+        <div class="col col-12 col-md-6 col-lg-3"> 
           <div class="essentials-module">
             <p class="essentials-tile-text">
               <img class="essentials-icon" src="assets/essentials-watch.svg" alt="Watch Icon"> 
@@ -843,7 +937,7 @@
           </div>
         </div>
 
-        <div class="col col-12 col-lg-3"> 
+        <div class="col col-12 col-md-6 col-lg-3"> 
           <div class="essentials-module">
             <p class="essentials-tile-text">
               <img class="essentials-icon" src="assets/essentials-newsletters.svg" alt="Newsletters Icon"> 
@@ -852,7 +946,7 @@
           </div>
         </div>
 
-        <div class="col col-12 col-lg-3"> 
+        <div class="col col-12 col-md-6 col-lg-3"> 
           <div class="essentials-module">
             <p class="essentials-tile-text">
               <img class="essentials-icon" src="assets/essentials-portfolio.svg" alt="Portfolio Icon"> <span class="essentials-text">Review your Portfolio <br>movement</span>
@@ -860,7 +954,7 @@
           </div>
         </div>
 
-        <div class="col col-12 col-lg-3"> 
+        <div class="col col-12 col-md-6 col-lg-3"> 
           <div class="essentials-module">
             <p class="essentials-tile-text">
               <img class="essentials-icon" src="assets/essentials-alerts.svg" alt="Alerts Icon"> <span class="essentials-text">Alerts on APP & Web</span>
@@ -868,7 +962,7 @@
           </div>
         </div>
 
-        <div class="col col-12 col-lg-3"> 
+        <div class="col col-12 col-md-6 col-lg-3"> 
           <div class="essentials-module">
             <p class="essentials-tile-text">
               <img class="essentials-icon" src="assets/essentials-breaking.svg" alt="Breaking Icon"> <span class="essentials-text">Breaking news and <br>expert analysis calls</span>
@@ -876,7 +970,7 @@
           </div>
         </div>
 
-        <div class="col col-12 col-lg-3"> 
+        <div class="col col-12 col-md-6 col-lg-3"> 
           <div class="essentials-module">
             <p class="essentials-tile-text">
               <img class="essentials-icon" src="assets/essentials-livestream.svg" alt="Livestream Icon"> <span class="essentials-text">Watch the Livestream <br>with Market data</span>
@@ -884,7 +978,7 @@
           </div>
         </div>
 
-        <div class="col col-12 col-lg-3"> 
+        <div class="col col-12 col-md-6 col-lg-3"> 
           <div class="essentials-module">
             <p class="essentials-tile-text">
               <img class="essentials-icon" src="assets/essentials-monitor.svg" alt="Monitor Icon"> <span class="essentials-text">Monitor your <br>screeners</span>
@@ -892,7 +986,7 @@
           </div>
         </div>
 
-        <div class="col col-12 col-lg-3"> 
+        <div class="col col-12 col-md-6 col-lg-3"> 
           <div class="essentials-module">
             <p class="essentials-tile-text">
               <img class="essentials-icon" src="assets/essentials-follow.svg" alt="Follow Icon"> <span class="essentials-text">Follow stocks in your <br>markets banner</span>
@@ -945,15 +1039,15 @@
 
     <div class="row">
       <div class="col col-12">
-        <h2 class="h2-pro text-center-lg">Pro Tools</h2>
-        <p class="p-pro text-center-lg">
+        <h2 class="h2-pro text-center-md">Pro Tools</h2>
+        <p class="p-pro text-center-md">
           Tools that help you watch stocks, track your holdings and help you decide what to do next.
         </p>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col col-12 col-lg-4 col-xl-4">
+    <div class="row pro-tools-grid">
+      <div class="col col-12 col-md-6 col-lg-4 col-xl-4">
         <h3 class="h3-pro">
           <img class="p-pro-icon" class="essentials-icon" src="assets/essentials-portfolio.svg" alt="Portfolio Icon"> 
           My Portfolio
@@ -974,8 +1068,9 @@
         <p><a class="target-link" href="#">Link My Portfolio <img src="assets/portfolio-arrow.svg"></a></p>
         <hr class="pro-tools-hr" />
       </div>
+
       <div class="col-xl-1"></div>
-      <div class="col col-12 col-lg-8 col-xl-7">
+      <div class="col col-12 col-md-6 col-lg-8 col-xl-7">
         <div class="video-container video-container-desk">
           <video class="pro-video" id="my-portfolio" muted playsinline loop poster="assets/portfolio-poster.jpg">
             <source src="https://dl.dropboxusercontent.com/s/uxh7ocin4p6t516/whitewithfear720.mp4" type="video/mp4">
@@ -993,13 +1088,13 @@
       <div class="col col-12 col-lg-4 col-xl-4">
         <h3 class="h3-pro">
           <img class="p-pro-icon" class="essentials-icon" src="assets/essentials-monitor.svg" alt="Portfolio Icon"> 
-          My Portfolio
+          Stocks Screener
         </h3>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col col-12 col-lg-8 col-xl-7">
+    <div class="row pro-tools-grid">
+      <div class="col col-12 col-md-6 col-lg-8 col-xl-7">
         <div class="video-container video-container">
           <video class="pro-video" id="stock-video" muted playsinline loop poster="assets/stock-screener-poster.jpg">
             <source src="https://dl.dropboxusercontent.com/s/uxh7ocin4p6t516/whitewithfear720.mp4" type="video/mp4">
@@ -1011,7 +1106,7 @@
         </div>
       </div>
       <div class="col-xl-1"></div>
-      <div class="col col-12 col-lg-4 col-xl-4">
+      <div class="col col-12 col-md-6 col-lg-4 col-xl-4">
         <h3 class="h3-pro hide-on-mobile show-on-desk">
           <img class="p-pro-icon" class="monitor-icon" src="assets/essentials-monitor.svg" alt="Portfolio Icon"> 
           Stocks Screener
@@ -1025,8 +1120,8 @@
 
     </div>
 
-    <div class="row">
-      <div class="col col-12 col-lg-4 col-xl-4">
+    <div class="row pro-tools-grid">
+      <div class="col col-12 col-md-6 col-lg-4 col-xl-4">
         <h3 class="h3-pro">
           <img class="p-pro-icon" class="watchlist-icon" src="assets/essentials-livestream.svg" alt="Portfolio Icon"> 
           Watchlist
@@ -1047,7 +1142,7 @@
         <p><a class="target-link" href="#">Create a Watchlist <img src="assets/portfolio-arrow.svg"></a></p>
       </div>
       <div class="col-xl-1"></div>
-      <div class="col col-12 col-lg-8 col-xl-7">
+      <div class="col col-12 col-md-6 col-lg-8 col-xl-7">
         <div class="video-container video-container-desk">
           <video class="pro-video" id="watchlist-video-desk" muted playsinline loop poster="assets/watchlist-poster.jpg">
             <source src="https://dl.dropboxusercontent.com/s/uxh7ocin4p6t516/whitewithfear720.mp4" type="video/mp4">
@@ -1115,8 +1210,8 @@
  <div class="pro-section green-container" id="pro-tip">
   <div class="container">
     <div class="row">
-      <div class="col col-md-6"><img class="pro-tip-img" src="assets/pro-tip.jpg"></div>
-      <div class="col col-md-6"><span class="pro-tip-label"><img src="assets/lightbulb.svg"> Pro Tip</span>
+      <div class="col col-md-6 order-last order-first-md"><img class="pro-tip-img" src="assets/pro-tip.jpg"></div>
+      <div class="col col-md-6 order-first order-last-md"><span class="pro-tip-label"><img src="assets/lightbulb.svg"> Pro Tip</span>
         <p class="tip-text">
           At the bottom of quote pages, get analyst consensus and price targets from experts. 
         </p>
@@ -1126,6 +1221,20 @@
   </div>
 </div>
 
+
+<div class="pro-section dark-green-container" id="customize">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <h2 class="h2-pro">Custom Markets Banner</h2>
+        <p class="p-pro">
+          By adding your stocks to the markets banner you can get real-time information on the Homepage. 
+        </p>
+         <p><a class="target-link target-link-white" href="#">Create A Banner <img src="assets/portfolio-arrow-white.svg"></a></p>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
