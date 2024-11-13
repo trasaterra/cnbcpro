@@ -106,7 +106,7 @@
     .h2-pro {
       font-size:28px;
       font-weight: 800;
-      line-height: 1.4;
+      line-height: 1.2;
       margin-top:0;
       margin-bottom: 12px;
     }
@@ -175,11 +175,7 @@
       font-weight: 600;
       line-height: 1.25;
     }
-    .tool-tip {
-      font-size: 10.35px;
-      font-weight: 600;
-      line-height: 1.22;
-    }
+    
     .tip-tag {
       font-size: 10.39px;
       font-weight: 700;
@@ -212,7 +208,6 @@
       width: 100%;
       padding-top: 56.25%;
       margin-bottom: 10px;
-      
     }
     .video-container .play-btn {
       position: absolute;
@@ -250,6 +245,10 @@
       object-position: top; 
       border-radius: 5px;
       box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.10);
+    }
+
+    .text-center {
+      text-align: center;
     }
 
     /* Modules  */
@@ -461,6 +460,183 @@
       color: #ffffff;
      }
 
+     #customize.pro-section {
+      margin-top: 100px;
+     }
+     .dark-green-container {
+      padding:32px;
+     }
+     #customize.pro-section .video-container {
+      margin-top:-67px;
+     }
+     #customize.pro-section .h2-pro {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 24px;
+     }
+
+      #customize.pro-section .p-pro {
+        font-size: 16px;
+        font-weight: 400;
+      }
+
+      /* Stay Informed */
+
+      #stay-informed.pro-section {
+        overflow: hidden;
+      }
+
+      #stay-informed .col {
+        padding: 0; 
+      }
+
+      #stay-informed .row {
+        margin-left: -6px; 
+        margin-right: -6px; 
+      }
+
+      #stay-informed .row > .col {
+        padding: 9px; 
+      }
+
+      #stay-informed.pro-section {
+        padding-bottom: 25px;
+        position: relative;
+      }
+      #stay-informed.pro-section .p-pro {
+        margin-bottom: 0;
+      }
+      .informed-tile {
+        background-color: #ffffff;
+        border-radius:10px;
+        overflow: hidden;
+        box-shadow: 0px 0px 15.591px 0px rgba(0, 0, 0, 0.07);
+        margin-bottom: 50px;
+        width: 100%;
+      }
+      .informed-img-wrap {
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+      }
+      .informed-icon {
+        width:44px;
+        height:44px;
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        background-color: #047E2E;
+        border-radius:22px;
+        vertical-align: middle;
+        margin-left:auto;
+        margin-right: auto;
+      }
+      .informed-icon img {
+        width: 28px;
+        height: auto;
+      }
+      .informed-tile img {
+        width:100%;
+        height: auto;
+      }
+      .informed-tile .informed-text {
+        padding:6px 12px 24px;
+      }
+      .informed-tile .informed-text .h3-pro {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .informed-tile .informed-text .p-pro-sub {
+        font-size: 12px;
+      }
+      .informed-tag {
+        color:#047E2E;
+        font-size: 12px;
+        font-weight: 700;
+        background-color: #CDE5D5;
+        padding:1px 6px;
+        border-radius: 5px;
+        position: absolute;
+        bottom:7px;
+        left:7px;
+      }
+
+      .tool-tip {
+        font-size: 10.35px;
+        font-weight: 600;
+        line-height: 1.22;
+        background-color: #BAD9C5;
+        border-radius: 4px;
+        padding: 4px 6px;
+        display: inline-block;
+        margin-top: 20px;
+        position: relative; 
+        color: #047E2E;
+      }
+
+      .tool-tip::before {
+        content: "";
+        position: absolute;
+        top: -10px; 
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 6px; 
+        border-style: solid;
+        border-color: transparent transparent #BAD9C5 transparent; 
+        display: block; 
+        width: 0; 
+        height: 0;
+      }
+
+      .tool-tip-column {
+        position: relative; /* Allows the line to position relative to the column */
+      }
+
+      .tool-tip-column::before {
+        content: "";
+        position: absolute;
+        top: 110px;
+        bottom: 0;
+        left: 50%; /* Center the line horizontally */
+        transform: translateX(-50%);
+        width: 4px; /* Thickness of the line */
+        background-color: rgba(4, 126, 46, 0.5); /* Line color */
+        z-index: 0; 
+        border-radius: 2px;
+      }
+
+      .informed-scroll-container {
+        height:300px;
+        overflow: scroll;
+        position: relative;
+        z-index: 0;
+      }
+
+      .informed-gradient {
+        height:150px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #F7F7F7 69.09%);      
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+        position: absolute;
+        bottom:0;
+        left:0;
+        right:0;
+        z-index: 1;
+      }
+
+      .parallax-item {
+        transform: translateZ(0);
+        transition: transform 0.2s ease-out;
+      }
+      .informed-target-wrap-lg {
+        display: none;
+      }
+
+
+
+
 
     /* Small screens (576px and up) */
     @media (min-width: 576px) {
@@ -485,6 +661,12 @@
       .col-md-4 { flex: 0 0 33.33%; max-width: 33.33%; }
       .col-md-6 { flex: 0 0 50%; max-width: 50%; }
       .col-md-12 { flex: 0 0 100%; max-width: 100%; }
+
+      .col-md-2 { flex: 0 0 16.66%; max-width: 16.66%; }   
+      .col-md-5 { flex: 0 0 41.66%; max-width: 41.66%; }  
+      .col-md-7 { flex: 0 0 58.33%; max-width: 58.33%; }  
+      .col-md-8 { flex: 0 0 66.66%; max-width: 66.66%; }  
+      .col-md-9 { flex: 0 0 75%; max-width: 75%; }       
     
       .text-center-md {
         text-align: center;
@@ -581,6 +763,22 @@
         margin-left: auto;
         margin-right: auto;
       }
+
+       /* Stay Informed */
+
+       .informed-scroll-container {
+        height: 300px;
+       }
+       .informed-gradient {
+        left:50%;
+        bottom:25px;
+       }
+       #stay-informed.pro-section .h2-pro {
+        font-size: 32px;
+       }
+       #stay-informed.pro-section .p-pro {
+        font-size: 16px !important;
+       }
 
 
 
@@ -690,9 +888,7 @@
       .p-pro-tip {
         font-size: 20px;
       }
-      .tool-tip {
-        font-size: 12px;
-      }
+     
       .tip-tag {
         font-size: 12px;
         line-height: 1.218;
@@ -812,6 +1008,134 @@
       .hero-br {
         display: inherit;
       }
+
+      /*Customize*/
+      #customize.pro-section {
+        padding-bottom: 0;
+        margin-top:150px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      #customize.pro-section .h2-pro {
+        font-size: 40px;
+       }
+
+      #customize.pro-section .p-pro {
+        font-size: 18px;
+      }
+      #customize.pro-section .video-container {
+        margin-top: -140px;
+        border-radius: 12px;
+        border: 14px solid #FEFEFE;
+        box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Stay Informed */
+
+      #stay-informed.pro-section {
+        padding-bottom: 50px;
+      }
+
+        .informed-tile {
+          height: 280px;
+          margin-bottom: 15px;
+        }
+
+       .informed-scroll-container {
+          height: auto;
+       }
+       .informed-gradient {
+          display: none;
+       }
+
+      .tool-tip {
+        position: relative; /* Allows positioning of the nub */
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.22;
+        background-color: #BAD9C5;
+        border-radius: 4px;
+        padding: 4px 6px;
+        display: inline-block;
+        margin-top: 0;
+        margin-bottom: 10px;
+        order:1;
+      }
+
+      .tool-tip::before {
+        content: none; /* Ensures no top nub appears */
+      }
+
+      .tool-tip::after {
+        content: "";
+        position: absolute;
+        top: 100%; /* Positions the nub exactly below the tooltip */
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 6px; /* Size of the nub */
+        border-style: solid;
+        border-color: #BAD9C5 transparent transparent transparent; /* Arrow points downward */
+        display: block;
+        width: 0;
+        height: 0;
+      }
+
+      .tool-tip-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .tool-tip-column::before {
+        top: 66px; /* Center the line vertically */
+        left: 65%; /* Align the line with the left side */
+        transform: translateY(-50%);
+        width: 72%; /* Full width for a horizontal line */
+        height: 4px; /* Thickness of the line for horizontal view */
+        background-color: rgba(186, 217, 197, 0.5);
+      }
+      .tool-tip-column.no-line::before {
+        background-color: transparent;
+      }
+      .informed-icon {
+        order:2;
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        z-index: 1;
+      }
+      .informed-icon::before {
+        content: "";
+        background-color: #ffffff;
+      }
+      .informed-icon img {
+        width: 32px;
+
+      }
+       #stay-informed.pro-section .h2-pro {
+        font-size: 54px;
+       }
+       #stay-informed.pro-section .p-pro {
+        font-size: 24px !important;
+       }
+
+      .informed-tile .informed-text .h3-pro{
+        font-size: 23px;
+      }
+      .informed-tile .informed-text .p-pro-sub {
+        font-size: 14px;
+      }
+
+      .informed-target-wrap {
+        display: none;
+      }
+      .informed-target-wrap-lg {
+        display: inherit;
+      }
+      .informed-spacer {
+        display: none;
+      }
+
 
     }
 
@@ -1054,7 +1378,7 @@
         </h3>
         <div class="video-container video-container-mobile">
           <video class="pro-video" id="my-portfolio-mobile" muted playsinline loop poster="assets/portfolio-poster.jpg">
-            <source src="https://dl.dropboxusercontent.com/s/uxh7ocin4p6t516/whitewithfear720.mp4" type="video/mp4">
+            <source src="https://www.dropbox.com/scl/fi/1z456drdnx1qkpl91oekv/custom-markets-banner.mp4?rlkey=ybyi69qpm3zk2mks008k1t8ut&raw=1" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <a class="play-btn" href="">
@@ -1073,7 +1397,7 @@
       <div class="col col-12 col-md-6 col-lg-8 col-xl-7">
         <div class="video-container video-container-desk">
           <video class="pro-video" id="my-portfolio" muted playsinline loop poster="assets/portfolio-poster.jpg">
-            <source src="https://dl.dropboxusercontent.com/s/uxh7ocin4p6t516/whitewithfear720.mp4" type="video/mp4">
+            <source src="https://www.dropbox.com/scl/fi/1z456drdnx1qkpl91oekv/custom-markets-banner.mp4?rlkey=ybyi69qpm3zk2mks008k1t8ut&raw=1" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <a class="play-btn" href="">
@@ -1097,7 +1421,7 @@
       <div class="col col-12 col-md-6 col-lg-8 col-xl-7">
         <div class="video-container video-container">
           <video class="pro-video" id="stock-video" muted playsinline loop poster="assets/stock-screener-poster.jpg">
-            <source src="https://dl.dropboxusercontent.com/s/uxh7ocin4p6t516/whitewithfear720.mp4" type="video/mp4">
+            <source src="https://www.dropbox.com/scl/fi/1z456drdnx1qkpl91oekv/custom-markets-banner.mp4?rlkey=ybyi69qpm3zk2mks008k1t8ut&raw=1" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <a class="play-btn" href="">
@@ -1128,7 +1452,7 @@
         </h3>
         <div class="video-container video-container-mobile">
           <video class="pro-video" id="watchlist-video-mobile" muted playsinline loop poster="assets/watchlist-poster.jpg">
-            <source src="https://dl.dropboxusercontent.com/s/uxh7ocin4p6t516/whitewithfear720.mp4" type="video/mp4">
+            <source src="https://www.dropbox.com/scl/fi/1z456drdnx1qkpl91oekv/custom-markets-banner.mp4?rlkey=ybyi69qpm3zk2mks008k1t8ut&raw=1" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <a class="play-btn" href="">
@@ -1145,7 +1469,7 @@
       <div class="col col-12 col-md-6 col-lg-8 col-xl-7">
         <div class="video-container video-container-desk">
           <video class="pro-video" id="watchlist-video-desk" muted playsinline loop poster="assets/watchlist-poster.jpg">
-            <source src="https://dl.dropboxusercontent.com/s/uxh7ocin4p6t516/whitewithfear720.mp4" type="video/mp4">
+            <source src="hhttps://www.dropbox.com/scl/fi/1z456drdnx1qkpl91oekv/custom-markets-banner.mp4?rlkey=ybyi69qpm3zk2mks008k1t8ut&raw=1" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <a class="play-btn" href="">
@@ -1225,10 +1549,19 @@
 <div class="pro-section dark-green-container" id="customize">
   <div class="container">
     <div class="row">
-      <div class="col col-12">
-        <h2 class="h2-pro">Custom Markets Banner</h2>
+      <div class="col col-12 col-md-7 order-last-md">
+        <div class="video-container">
+          <video class="pro-video" id="customize-video" muted playsinline loop poster="assets/customize-poster.jpg">
+            <source src="https://www.dropbox.com/scl/fi/1z456drdnx1qkpl91oekv/custom-markets-banner.mp4?rlkey=ybyi69qpm3zk2mks008k1t8ut&raw=1" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      <div class="col col-md-1 col-xl-1"></div>
+      <div class="col col-12 col-md-4 col-xl-4 order-first-md">
+        <h2 class="h2-pro">Customize your Markets Banner</h2>
         <p class="p-pro">
-          By adding your stocks to the markets banner you can get real-time information on the Homepage. 
+          By adding your stocks to the markets banner you can get real-time information for the stocks you follow.
         </p>
          <p><a class="target-link target-link-white" href="#">Create A Banner <img src="assets/portfolio-arrow-white.svg"></a></p>
       </div>
@@ -1236,6 +1569,216 @@
   </div>
 </div>
 
+<script>
+  // Select the video element
+const video = document.getElementById('customize-video');
+
+// Create an Intersection Observer to monitor when the video enters/exits the viewport
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      video.play(); // Play when in viewport
+    } else {
+      video.pause(); // Pause when out of viewport
+    }
+  });
+}, { threshold: 0.5 }); // Adjust threshold if needed
+
+// Start observing the video element
+observer.observe(video);
+
+</script>
+
+
+ <div class="pro-section green-container" id="pro-tip-2">
+  <div class="container">
+    <div class="row">
+      <div class="col col-md-6 order-last order-first-md"><img class="pro-tip-img" src="assets/pro-tip-img-2.png"></div>
+      <div class="col col-md-6 order-first order-last-md"><span class="pro-tip-label"><img src="assets/lightbulb.svg"> Pro Tip</span>
+        <p class="tip-text">
+          Check the bell in the header to see live events, headlines, and stock alerts based on your watch list.
+        </p>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="pro-section gray-container" id="stay-informed">
+  <div class="container">
+
+    <div class="row">
+      <div class="col col-12 col-md-6 col-lg-12">
+        <h2 class="h2-pro text-center-lg">Pro Newsletters Keep You Ahead 24/7</h2>
+        <p class="p-pro text-center-lg">
+          Read the newsletters you receive throughout the day to stay informed on what you need to know, and things happening in the market. 
+        </p>
+
+        <div class="row informed-target-wrap">
+          <div class="col col-12">
+            <p class="text-center-lg">
+              <a class="target-link" href="#">View Playbook <img src="assets/portfolio-arrow.svg"></a></p>
+          </div>
+        </div>
+
+      </div>
+      <div class="informed-gradient"></div>
+      <div class="col col-12 col-md-6 col-lg-12 informed-scroll-container">
+        <div class="row">
+          
+          <!-- First Column -->
+          <div class="col col-12 col-lg-3">
+            <div class="row">
+              <div class="col col-3 col-md-4 col-lg-12 text-center tool-tip-column">
+                <div class="informed-icon">
+                  <img src="assets/SMALL_CNBC_EVENING.svg">
+                </div>
+                <span class="tool-tip">Pre-Market</span>
+              </div>
+              <div class="col col-9 col-md-8 col-lg-12">
+                <div class="informed-tile par">
+                  <div class="informed-img-wrap">
+                    <img src="assets/pro-playbook.png">
+                    <span class="informed-tag">Pro Exclusive</span>
+                  </div>
+                  <div class="informed-text">
+                    <h3 class="h3-pro">Pro Playbook</h3>
+                    <p class="p-pro-sub">Get a daily preview of what’s ahead in the stock market</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Repeat similar structure for other columns -->
+
+          <!-- Second Column -->
+          <div class="col col-12 col-lg-3">
+            <div class="row">
+              <div class="col col-3 col-md-4 col-lg-12 text-center tool-tip-column">
+                <div class="informed-icon">
+                  <img src="assets/SMALL_CNBC_NOON.svg">
+                </div>
+                <span class="tool-tip">Midday</span>
+              </div>
+              <div class="col col-9 col-md-8 col-lg-12">
+                <div class="informed-tile par">
+                  <div class="informed-img-wrap" >
+                    <img src="assets/market-pulse.png">
+                    <span class="informed-tag">Pro Exclusive</span>
+                  </div>
+                  <div class="informed-text">
+                    <h3 class="h3-pro">Market Pulse</h3>
+                    <p class="p-pro-sub">CNBC Pro’s daily midday market update with options ideas and stock picks from the pros</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Third Column -->
+          <div class="col col-12 col-lg-3">
+            <div class="row">
+              <div class="col col-3 col-md-4 col-lg-12 text-center tool-tip-column">
+                <div class="informed-icon">
+                  <img src="assets/NEW_SMALL_CNBC_NIGHT.svg">
+                </div>
+                <span class="tool-tip">Evening</span>
+              </div>
+              <div class="col col-9 col-md-8 col-lg-12">
+                <div class="informed-tile par">
+                  <div class="informed-img-wrap" >
+                    <img src="assets/market-wrap.png">
+                    <span class="informed-tag">Pro Exclusive</span>
+                  </div>
+                  <div class="informed-text">
+                    <h3 class="h3-pro">Market Wrap Up</h3>
+                    <p class="p-pro-sub">CNBC Pro’s exclusive charting & technical analysis with income generating stock plays</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fourth Column -->
+          <div class="col col-12 col-lg-3">
+            <div class="row">
+              <div class="col col-3 col-md-4 col-lg-12 text-center tool-tip-column no-line">
+                <div class="informed-icon">
+                  <img src="assets/NEW_SMALL_CNBC_l8NIGHT.svg">
+                </div>
+                <span class="tool-tip">Market Close</span>  
+              </div>
+              <div class="col col-9 col-md-8 col-lg-12">
+                <div class="informed-tile par">
+                  <div class="informed-img-wrap">
+                    <img src="assets/stocks-night.png">
+                  </div>
+                  <div class="informed-text">
+                    <h3 class="h3-pro">Stocks @ Night</h3>
+                    <p class="p-pro-sub">Your first look at the stock market for tomorrow and your last look for today</p>
+                  </div>
+                </div>
+                <div class="informed-spacer" style="height:50px">&nbsp;</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row informed-target-wrap-lg">
+      <div class="col col-12">
+        <p class="text-center-lg">
+          <a class="target-link" href="#">View Playbook <img src="assets/portfolio-arrow.svg"></a></p>
+      </div>
+    </div>
+
+  </div>
+  
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const container = document.querySelector(".informed-scroll-container");
+
+  if (container) {
+    const parallaxItems = container.querySelectorAll(".par");
+
+    container.addEventListener("scroll", function () {
+      parallaxItems.forEach((item) => {
+        const speed = parseFloat(item.dataset.speed) || 0.1;
+        
+        // Check if the container is at the top
+        if (container.scrollTop === 0) {
+          item.style.transform = `translateY(0)`; // Reset position at the top
+        } else {
+          const offset = container.scrollTop * speed; // Apply parallax effect
+          item.style.transform = `translateY(${offset}px)`;
+        }
+      });
+    });
+  }
+});
+</script>
+
+
+<div class="pro-section green-container" id="pro-tip-3">
+  <div class="container">
+    <div class="row">
+      <div class="col col-md-6 order-last order-first-md"><img class="pro-tip-img" src="assets/pro-tip-3.jpg"></div>
+      <div class="col col-md-6 order-first order-last-md"><span class="pro-tip-label"><img src="assets/lightbulb.svg"> Pro Tip</span>
+        <p class="tip-text">
+          Wherever you see a ticker symbol, click to view up-to-date quote data without losing your place.
+        </p>
+      </div>
+      
+    </div>
+  </div>
+</div>
 
 
 
