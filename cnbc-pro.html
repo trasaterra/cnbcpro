@@ -667,6 +667,7 @@
         position: relative;
         z-index: 0;
       }
+      
 
       .informed-gradient {
         height:150px;
@@ -680,13 +681,31 @@
         z-index: 1;
       }
 
-      .parallax-item {
-        transform: translateZ(0);
-        transition: transform 0.2s ease-out;
-      }
+
       .informed-target-wrap-lg {
         display: none;
       }
+
+     @media only screen and (max-width: 768px) {
+      .tool-tip-column {
+        position: relative; /* Ensures proper positioning context for sticky */
+      }
+
+      .tool-tip-wrapper {
+        position: relative; /* Default to relative */
+      }
+
+      .tool-tip-wrapper.sticky-active {
+        position: sticky; /* Apply sticky only when in bounds */
+        top: 0;
+        z-index: 2; /* Ensure it stays above other elements */
+      }
+    }
+
+
+
+
+
 
 /*favorite-hosts-header*/
 
@@ -2205,35 +2224,40 @@ observer.observe(video);
           
           <!-- First Column -->
           <div class="col col-12 col-lg-3">
+
             <div class="row">
               <div class="col col-3 col-md-4 col-lg-12 text-center tool-tip-column">
-                <div class="informed-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
-                    <g clip-path="url(#clip0_1275_18794)">
-                      <path d="M3.79108 23.2944H29.2089" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
-                      <mask id="mask0_1275_18794" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="-1" y="0" width="35" height="21">
-                        <path d="M-0.894657 20.1543L33.8947 20.1543V0.802742L-0.894657 0.802742V20.1543Z" fill="white"/>
-                      </mask>
-                      <g mask="url(#mask0_1275_18794)">
-                        <path d="M11.4556 19.1397L11.0062 18.7483C10.7743 18.5019 10.6438 18.154 10.6583 17.8206C10.7743 14.675 13.3545 12.1963 16.5145 12.1963C19.6746 12.1963 22.2403 14.6605 22.3707 17.8206V18.2844L22.0083 18.7483C21.7764 18.9947 21.443 19.1397 21.0951 19.1397H11.4701H11.4556Z" fill="white" fill-opacity="0.2"/>
-                        <path d="M16.5 13.2832C19.0657 13.2832 21.1676 15.3126 21.2691 17.8638C21.2691 17.9653 21.1821 18.0523 21.0806 18.0523H11.9194C11.818 18.0523 11.731 17.9653 11.731 17.8638C11.8325 15.3126 13.9198 13.2832 16.5 13.2832ZM16.5 11.1089C12.7602 11.1089 9.7161 14.037 9.57115 17.7768C9.54216 18.4146 9.78858 19.0379 10.2234 19.5018C10.6728 19.9657 11.2816 20.2266 11.9194 20.2266H21.0806C21.7184 20.2266 22.3417 19.9657 22.7766 19.5018C23.226 19.0379 23.4579 18.4146 23.4289 17.7768C23.2839 14.037 20.2399 11.1089 16.5 11.1089Z" fill="white"/>
-                        <path d="M16.5 5.76025V8.5434" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
-                        <path d="M28.7922 18.0522H26.0091" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
-                        <path d="M4.20782 18.0522H6.99097" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
-                        <path d="M24.8494 9.70312L23.2259 11.3266" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
-                        <path d="M8.15057 9.70312L9.77408 11.3266" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+                
+                  <div class="informed-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
+                      <g clip-path="url(#clip0_1275_18794)">
+                        <path d="M3.79108 23.2944H29.2089" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+                        <mask id="mask0_1275_18794" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="-1" y="0" width="35" height="21">
+                          <path d="M-0.894657 20.1543L33.8947 20.1543V0.802742L-0.894657 0.802742V20.1543Z" fill="white"/>
+                        </mask>
+                        <g mask="url(#mask0_1275_18794)">
+                          <path d="M11.4556 19.1397L11.0062 18.7483C10.7743 18.5019 10.6438 18.154 10.6583 17.8206C10.7743 14.675 13.3545 12.1963 16.5145 12.1963C19.6746 12.1963 22.2403 14.6605 22.3707 17.8206V18.2844L22.0083 18.7483C21.7764 18.9947 21.443 19.1397 21.0951 19.1397H11.4701H11.4556Z" fill="white" fill-opacity="0.2"/>
+                          <path d="M16.5 13.2832C19.0657 13.2832 21.1676 15.3126 21.2691 17.8638C21.2691 17.9653 21.1821 18.0523 21.0806 18.0523H11.9194C11.818 18.0523 11.731 17.9653 11.731 17.8638C11.8325 15.3126 13.9198 13.2832 16.5 13.2832ZM16.5 11.1089C12.7602 11.1089 9.7161 14.037 9.57115 17.7768C9.54216 18.4146 9.78858 19.0379 10.2234 19.5018C10.6728 19.9657 11.2816 20.2266 11.9194 20.2266H21.0806C21.7184 20.2266 22.3417 19.9657 22.7766 19.5018C23.226 19.0379 23.4579 18.4146 23.4289 17.7768C23.2839 14.037 20.2399 11.1089 16.5 11.1089Z" fill="white"/>
+                          <path d="M16.5 5.76025V8.5434" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+                          <path d="M28.7922 18.0522H26.0091" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+                          <path d="M4.20782 18.0522H6.99097" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+                          <path d="M24.8494 9.70312L23.2259 11.3266" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+                          <path d="M8.15057 9.70312L9.77408 11.3266" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+                        </g>
                       </g>
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_1275_18794">
-                        <rect width="32" height="32" fill="white" transform="translate(0.5)"/>
-                      </clipPath>
-                    </defs>
-                  </svg>
+                      <defs>
+                        <clipPath id="clip0_1275_18794">
+                          <rect width="32" height="32" fill="white" transform="translate(0.5)"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </div>
+                  <div class="tool-tip-wrapper">
+                  <span class="tool-tip">Pre-Market</span>
                 </div>
-                <span class="tool-tip">Pre-Market</span>
               </div>
-              <div class="col col-9 col-md-8 col-lg-12">
+
+              <div class="col col-9 col-md-8 col-lg-12 tile-column">
                 <div class="informed-tile par">
                   <div class="informed-img-wrap">
                     <img src="https://image.cnbcfm.com/api/v1/image/108061837-1731442792560-CNBC_PRO_ONBOARDING_NEWSLETTER_PLAYBOOK.png?v=1731442894" alt="">
@@ -2254,23 +2278,26 @@ observer.observe(video);
           <div class="col col-12 col-lg-3">
             <div class="row">
               <div class="col col-3 col-md-4 col-lg-12 text-center tool-tip-column">
-                <div class="informed-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none" alt="">
-                    <path d="M16.5 22.1214C13.121 22.1214 10.3785 19.3789 10.3785 15.9999C10.3785 12.621 13.121 9.87842 16.5 9.87842C19.8789 9.87842 22.6215 12.621 22.6215 15.9999C22.6215 19.3789 19.8789 22.1214 16.5 22.1214Z" fill="white" fill-opacity="0.2"/>
-                    <path d="M16.5 11.015C19.2577 11.015 21.4851 13.2424 21.4851 16.0001C21.4851 18.7578 19.2577 20.9852 16.5 20.9852C13.7423 20.9852 11.5149 18.7578 11.5149 16.0001C11.5149 13.2424 13.7423 11.015 16.5 11.015ZM16.5 8.74219C12.4998 8.74219 9.24207 11.9999 9.24207 16.0001C9.24207 20.0003 12.4998 23.258 16.5 23.258C20.5002 23.258 23.7579 20.0003 23.7579 16.0001C23.7579 11.9999 20.5002 8.74219 16.5 8.74219Z" fill="white"/>
-                    <path d="M16.5 28.8492V25.9399" stroke="white" stroke-width="2.13333" stroke-miterlimit="10" stroke-linecap="round"/>
-                    <path d="M3.65094 16H6.56017" stroke="white" stroke-width="2.13333" stroke-miterlimit="10" stroke-linecap="round"/>
-                    <path d="M16.5 3.15088V6.06011" stroke="white" stroke-width="2.13333" stroke-miterlimit="10" stroke-linecap="round"/>
-                    <path d="M29.3491 16H26.4399" stroke="white" stroke-width="2.13333" stroke-miterlimit="10" stroke-linecap="round"/>
-                    <path d="M7.77234 24.7278L9.46939 23.0308" stroke="white" stroke-width="2.13333" stroke-miterlimit="10" stroke-linecap="round"/>
-                    <path d="M7.77234 7.27246L9.46939 8.96951" stroke="white" stroke-width="2.13333" stroke-miterlimit="10" stroke-linecap="round"/>
-                    <path d="M25.2277 7.27246L23.5306 8.96951" stroke="white" stroke-width="2.13333" stroke-miterlimit="10" stroke-linecap="round"/>
-                    <path d="M25.2277 24.7278L23.5306 23.0308" stroke="white" stroke-width="2.13333" stroke-miterlimit="10" stroke-linecap="round"/>
-                  </svg>
+                
+                  <div class="informed-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none" alt="">
+                      <path d="M16.5 22.1214C13.121 22.1214 10.3785 19.3789 10.3785 15.9999C10.3785 12.621 13.121 9.87842 16.5 9.87842C19.8789 9.87842 22.6215 12.621 22.6215 15.9999C22.6215 19.3789 19.8789 22.1214 16.5 22.1214Z" fill="white" fill-opacity="0.2"/>
+                      <path d="M16.5 11.015C19.2577 11.015 21.4851 13.2424 21.4851 16.0001C21.4851 18.7578 19.2577 20.9852 16.5 20.9852C13.7423 20.9852 11.5149 18.7578 11.5149 16.0001C11.5149 13.2424 13.7423 11.015 16.5 11.015ZM16.5 8.74219C12.4998 8.74219 9.24207 11.9999 9.24207 16.0001C9.24207 20.0003 12.4998 23.258 16.5 23.258C20.5002 23.258 23.7579 20.0003 23.7579 16.0001C23.7579 11.9999 20.5002 8.74219 16.5 8.74219Z" fill="white"/>
+                      <path d="M16.5 28.8492V25.9399" stroke="white" stroke-width="2.13333" stroke-miterlimit="10" stroke-linecap="round"/>
+                      <path d="M3.65094 16H6.56017" stroke="white" stroke-width="2.13333" stroke-miterlimit="10" stroke-linecap="round"/>
+                      <path d="M16.5 3.15088V6.06011" stroke="white" stroke-width="2.13333" stroke-miterlimit="10" stroke-linecap="round"/>
+                      <path d="M29.3491 16H26.4399" stroke="white" stroke-width="2.13333" stroke-miterlimit="10" stroke-linecap="round"/>
+                      <path d="M7.77234 24.7278L9.46939 23.0308" stroke="white" stroke-width="2.13333" stroke-miterlimit="10" stroke-linecap="round"/>
+                      <path d="M7.77234 7.27246L9.46939 8.96951" stroke="white" stroke-width="2.13333" stroke-miterlimit="10" stroke-linecap="round"/>
+                      <path d="M25.2277 7.27246L23.5306 8.96951" stroke="white" stroke-width="2.13333" stroke-miterlimit="10" stroke-linecap="round"/>
+                      <path d="M25.2277 24.7278L23.5306 23.0308" stroke="white" stroke-width="2.13333" stroke-miterlimit="10" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div class="tool-tip-wrapper">
+                  <span class="tool-tip">Midday</span>
                 </div>
-                <span class="tool-tip">Midday</span>
               </div>
-              <div class="col col-9 col-md-8 col-lg-12">
+              <div class="col col-9 col-md-8 col-lg-12 tile-column">
                 <div class="informed-tile par">
                   <div class="informed-img-wrap" >
                     <img src="https://image.cnbcfm.com/api/v1/image/108061836-1731442792559-CNBC_PRO_ONBOARDING_NEWSLETTER_MARKET_PULSE.png?v=1731442894" alt="">
@@ -2289,14 +2316,18 @@ observer.observe(video);
           <div class="col col-12 col-lg-3">
             <div class="row">
               <div class="col col-3 col-md-4 col-lg-12 text-center tool-tip-column">
-                <div class="informed-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none" alt="">
-                    <path d="M19.2211 25.7725C17.3697 26.0105 15.3381 25.7876 13.3255 24.8767C11.1539 23.8787 9.36833 22.1186 8.35204 19.964C6.01137 15.0354 7.67228 9.44479 11.858 6.55432C12.3265 6.22525 12.979 6.4909 13.0653 7.05786C14.4616 15.3072 17.8593 19.3605 25.7819 20.5469C26.3445 20.6359 26.557 21.348 26.2112 21.7957C24.5038 23.9912 22.0132 25.4271 19.2228 25.7857L19.2211 25.7725Z" fill="white" fill-opacity="0.15" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-                  </svg>
+                
+                  <div class="informed-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none" alt="">
+                      <path d="M19.2211 25.7725C17.3697 26.0105 15.3381 25.7876 13.3255 24.8767C11.1539 23.8787 9.36833 22.1186 8.35204 19.964C6.01137 15.0354 7.67228 9.44479 11.858 6.55432C12.3265 6.22525 12.979 6.4909 13.0653 7.05786C14.4616 15.3072 17.8593 19.3605 25.7819 20.5469C26.3445 20.6359 26.557 21.348 26.2112 21.7957C24.5038 23.9912 22.0132 25.4271 19.2228 25.7857L19.2211 25.7725Z" fill="white" fill-opacity="0.15" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
+                    </svg>
+                  </div>
+                  <div class="tool-tip-wrapper">
+                  <span class="tool-tip">Evening</span>
                 </div>
-                <span class="tool-tip">Evening</span>
+                
               </div>
-              <div class="col col-9 col-md-8 col-lg-12">
+              <div class="col col-9 col-md-8 col-lg-12 tile-column">
                 <div class="informed-tile par">
                   <div class="informed-img-wrap" >
                     <img src="https://image.cnbcfm.com/api/v1/image/108061838-1731442792560-CNBC_PRO_ONBOARDING_NEWSLETTER_STOCKS_NIGHT.png?v=1731442894" alt="">
@@ -2315,16 +2346,19 @@ observer.observe(video);
           <div class="col col-12 col-lg-3">
             <div class="row">
               <div class="col col-3 col-md-4 col-lg-12 text-center tool-tip-column no-line">
-                <div class="informed-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none" alt="">
-                    <path d="M26.0244 14.1498L26.5977 14.0431C26.6777 14.0298 26.7177 14.1231 26.6644 14.1764L26.251 14.5898C25.9577 14.8831 25.891 15.3364 26.091 15.6964L26.371 16.2164C26.411 16.2831 26.331 16.3631 26.2644 16.3231L25.7444 16.0564C25.371 15.8698 24.931 15.9498 24.6377 16.2431L24.2377 16.6698C24.2377 16.6698 24.091 16.6698 24.1044 16.6031L24.1977 16.0298C24.2644 15.6164 24.051 15.2164 23.6777 15.0431L23.1444 14.7898C23.0777 14.7498 23.091 14.6564 23.171 14.6431L23.7444 14.5498C24.1577 14.4831 24.4644 14.1631 24.531 13.7498L24.611 13.1631C24.611 13.0831 24.731 13.0698 24.7577 13.1364L25.0244 13.6564C25.211 14.0298 25.6244 14.2298 26.0244 14.1498Z" fill="white" stroke="white" stroke-miterlimit="10"/>
-                    <path d="M22.0266 8.33549L23.0533 8.78882C23.12 8.81549 23.12 8.92216 23.04 8.93549L21.9333 9.16216C21.5333 9.24216 21.2266 9.57549 21.1866 9.98882L21.08 11.1088C21.08 11.1888 20.9733 11.2022 20.9333 11.1355L20.3866 10.1622C20.1866 9.80216 19.7733 9.61549 19.36 9.70882L18.2666 9.94882C18.1866 9.96215 18.1333 9.86882 18.1866 9.81549L18.9466 8.98882C19.2266 8.68216 19.28 8.22882 19.0666 7.88215L18.4933 6.90882C18.4533 6.84216 18.52 6.76215 18.6 6.78882L19.6266 7.25549C20 7.42882 20.44 7.33549 20.72 7.02882L21.4666 6.18882C21.4666 6.18882 21.6133 6.17549 21.6 6.25549L21.4666 7.37549C21.4133 7.78882 21.64 8.17549 22.0266 8.34882V8.33549Z" fill="white" stroke="white" stroke-miterlimit="10"/>
-                    <path d="M17.4934 25.4825C15.7361 25.5809 13.847 25.2327 12.0286 24.2396C10.0585 23.1614 8.50306 21.379 7.69147 19.2878C5.82098 14.5049 7.76296 9.36156 11.8873 6.94038C12.3531 6.67391 12.9435 6.96133 12.9866 7.49308C13.7329 15.3303 16.6562 19.3597 24.0138 21.0174C24.5412 21.1347 24.6865 21.821 24.3346 22.2146C22.5871 24.1554 20.1559 25.3333 17.5067 25.4817L17.4934 25.4825Z" fill="white" fill-opacity="0.15" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-                  </svg>
+                
+                  <div class="informed-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none" alt="">
+                      <path d="M26.0244 14.1498L26.5977 14.0431C26.6777 14.0298 26.7177 14.1231 26.6644 14.1764L26.251 14.5898C25.9577 14.8831 25.891 15.3364 26.091 15.6964L26.371 16.2164C26.411 16.2831 26.331 16.3631 26.2644 16.3231L25.7444 16.0564C25.371 15.8698 24.931 15.9498 24.6377 16.2431L24.2377 16.6698C24.2377 16.6698 24.091 16.6698 24.1044 16.6031L24.1977 16.0298C24.2644 15.6164 24.051 15.2164 23.6777 15.0431L23.1444 14.7898C23.0777 14.7498 23.091 14.6564 23.171 14.6431L23.7444 14.5498C24.1577 14.4831 24.4644 14.1631 24.531 13.7498L24.611 13.1631C24.611 13.0831 24.731 13.0698 24.7577 13.1364L25.0244 13.6564C25.211 14.0298 25.6244 14.2298 26.0244 14.1498Z" fill="white" stroke="white" stroke-miterlimit="10"/>
+                      <path d="M22.0266 8.33549L23.0533 8.78882C23.12 8.81549 23.12 8.92216 23.04 8.93549L21.9333 9.16216C21.5333 9.24216 21.2266 9.57549 21.1866 9.98882L21.08 11.1088C21.08 11.1888 20.9733 11.2022 20.9333 11.1355L20.3866 10.1622C20.1866 9.80216 19.7733 9.61549 19.36 9.70882L18.2666 9.94882C18.1866 9.96215 18.1333 9.86882 18.1866 9.81549L18.9466 8.98882C19.2266 8.68216 19.28 8.22882 19.0666 7.88215L18.4933 6.90882C18.4533 6.84216 18.52 6.76215 18.6 6.78882L19.6266 7.25549C20 7.42882 20.44 7.33549 20.72 7.02882L21.4666 6.18882C21.4666 6.18882 21.6133 6.17549 21.6 6.25549L21.4666 7.37549C21.4133 7.78882 21.64 8.17549 22.0266 8.34882V8.33549Z" fill="white" stroke="white" stroke-miterlimit="10"/>
+                      <path d="M17.4934 25.4825C15.7361 25.5809 13.847 25.2327 12.0286 24.2396C10.0585 23.1614 8.50306 21.379 7.69147 19.2878C5.82098 14.5049 7.76296 9.36156 11.8873 6.94038C12.3531 6.67391 12.9435 6.96133 12.9866 7.49308C13.7329 15.3303 16.6562 19.3597 24.0138 21.0174C24.5412 21.1347 24.6865 21.821 24.3346 22.2146C22.5871 24.1554 20.1559 25.3333 17.5067 25.4817L17.4934 25.4825Z" fill="white" fill-opacity="0.15" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
+                    </svg>
+                  </div>
+                  <div class="tool-tip-wrapper">
+                  <span class="tool-tip">Market Close</span>  
                 </div>
-                <span class="tool-tip">Market Close</span>  
               </div>
-              <div class="col col-9 col-md-8 col-lg-12">
+              <div class="col col-9 col-md-8 col-lg-12 tile-column">
                 <div class="informed-tile par">
                   <div class="informed-img-wrap">
                     <img src="https://image.cnbcfm.com/api/v1/image/108061839-1731442792560-CNBC_PRO_ONBOARDING_NEWSLETTER_WRAP_UP.png?v=1731442894" alt="">
@@ -2363,26 +2397,31 @@ observer.observe(video);
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const container = document.querySelector(".informed-scroll-container");
+  if (window.innerWidth <= 768) {
+    const toolTipWrappers = document.querySelectorAll('.tool-tip-wrapper');
+    const scrollContainer = document.querySelector('.informed-scroll-container');
 
-  if (container) {
-    const parallaxItems = container.querySelectorAll(".par");
-
-    container.addEventListener("scroll", function () {
-      parallaxItems.forEach((item) => {
-        const speed = parseFloat(item.dataset.speed) || 0.1;
-        
-        // Check if the container is at the top
-        if (container.scrollTop === 0) {
-          item.style.transform = `translateY(0)`; // Reset position at the top
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('sticky-active');
         } else {
-          const offset = container.scrollTop * speed; // Apply parallax effect
-          item.style.transform = `translateY(${offset}px)`;
+          entry.target.classList.remove('sticky-active');
         }
       });
+    }, {
+      root: scrollContainer,
+      threshold: 1.0
+    });
+
+    toolTipWrappers.forEach(wrapper => {
+      observer.observe(wrapper);
     });
   }
 });
+
+
+
 </script>
 
 
