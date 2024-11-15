@@ -724,112 +724,7 @@
 
       /*Card Carousel*/
 
-.carousel-container {
-    width: 100vw; /* Full viewport width */
-    height: 60vh; /* Desired height */
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative; /* For proper z-index stacking */
-    left: 50%; /* Centering trick */
-    margin-left: -50vw; /* Centers within viewport */
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
 
-/* Carousel Wrapper: Stretch to full width of container */
-.carousel-wrapper {
-    width: 100%;                     /* Full width within container */
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-}
-
-
-/* Slide Styling: Keep the scaling and positioning */
-.carousel-slide {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 29vw;                     /* Set a relative width for responsiveness */
-    height: 29vw;
-    transition: transform 0.5s ease, left 0.5s ease, z-index 0.5s ease;
-    transform-origin: center center;
-}
-
-/* Image Styling for a responsive fit */
-.carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-.carousel-slide.center {
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1.1); /* Slightly reduced scale */
-    z-index: 3;
-}
-
-.carousel-slide.left {
-    left: 25%; /* Increased spacing from center */
-    transform: translate(-50%, -50%) scale(0.9); /* Reduced scale */
-    z-index: 2;
-}
-
-.carousel-slide.right {
-    left: 75%; /* Increased spacing from center */
-    transform: translate(-50%, -50%) scale(0.9); /* Reduced scale */
-    z-index: 2;
-}
-
-.carousel-slide.left-far {
-    left: 10%; /* Increased spacing further from left */
-    transform: translate(-50%, -50%) scale(0.8);
-    z-index: 1;
-}
-
-.carousel-slide.right-far {
-    left: 90%; /* Increased spacing further from right */
-    transform: translate(-50%, -50%) scale(0.8);
-    z-index: 1;
-}
-
-@media (max-width: 767px) {
-   
-  .carousel-container {
-    height: 30vh; 
-  }
-  .carousel-slide {
-    width: 43vw;
-    height: 43vw;
-}
-
-  .carousel-slide.left-far,
-  .carousel-slide.right-far {
-      display: none;
-  }
-
-  /* Adjust positioning to space out the three visible slides */
-  .carousel-slide.center {
-      left: 50%;
-      transform: translate(-50%, -50%) scale(1.1);
-  }
-
-  .carousel-slide.left {
-      left: 10%;
-      transform: translate(-50%, -50%) scale(0.9);
-  }
-
-  .carousel-slide.right {
-      left: 90%;
-      transform: translate(-50%, -50%) scale(0.9);
-  }
-}
 
 
 /*Download*/
@@ -2528,13 +2423,118 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 </div>
 
+<style>
+  .carousel-container {
+    width: 100vw;
+    height: 60vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
 
+.carousel-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 29vw;
+    height: 29vw;
+    transition: transform 0.5s ease, left 0.5s ease, z-index 0.1s linear;
+    transform-origin: center center;
+    will-change: transform, z-index;
+}
+
+.carousel-slide.moving {
+    transition: transform 0.5s ease, left 0.5s ease;
+}
+
+.carousel-slide.subtle-transition {
+    transition: transform 0.3s ease, left 0.3s ease, z-index 0.1s linear;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.carousel-slide.center {
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.1);
+    z-index: 3;
+}
+
+.carousel-slide.left {
+    left: 25%;
+    transform: translate(-50%, -50%) scale(0.9);
+    z-index: 2;
+}
+
+.carousel-slide.right {
+    left: 75%;
+    transform: translate(-50%, -50%) scale(0.9);
+    z-index: 2;
+}
+
+.carousel-slide.left-far,
+.carousel-slide.right-far {
+    transform: translate(-50%, -50%) scale(0.85);
+    z-index: 1;
+}
+
+.carousel-slide.left-far {
+    left: 10%;
+}
+
+.carousel-slide.right-far {
+    left: 90%;
+}
+
+@media (max-width: 767px) {
+    .carousel-container {
+        height: 40vh;
+    }
+    .carousel-slide {
+        width: 43vw;
+        height: 43vw;
+    }
+    .carousel-slide.left-far,
+    .carousel-slide.right-far {
+        display: none;
+    }
+    .carousel-slide.center {
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    .carousel-slide.left {
+        left: 10%;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    .carousel-slide.right {
+        left: 90%;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+}
+</style>
   <div class="carousel-container">
     <div class="carousel-wrapper">
-        <!-- Cloned last slides (for seamless loop) -->
-        <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061784-1731439461983-Scott_Wapner.png?v=1731441668" alt="Slide 5"></div>
-
-        <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061785-1731439461983-Tyler_Mathisen.png?v=1731441709" alt="Slide 5"></div>
+        
 
         <!-- Actual slides -->
         <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061783-1731439461983-Sara_Eisen.png?v=1731440954" alt="Slide 1"></div>
@@ -2573,14 +2573,167 @@ document.addEventListener("DOMContentLoaded", function () {
 
         <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061785-1731439461983-Tyler_Mathisen.png?v=1731441709" alt="Slide 5"></div>
 
-        <!-- Cloned first slides (for seamless loop) -->
-        <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061784-1731439461983-Scott_Wapner.png?v=1731441668" alt="Slide 5"></div>
-
-        <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061785-1731439461983-Tyler_Mathisen.png?v=1731441709" alt="Slide 5"></div>
+       
 
     </div>
   </div>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const carouselWrapper = document.querySelector('.carousel-wrapper');
+    const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+    let currentIndex = 3; // Start with the fourth slide as the center (midpoint in a 7-slide stack)
+    let isPaused = false;
+    let isDragging = false;
+    let startX = 0;
+    let carouselInterval;
+
+    function updateSlides() {
+        const isSmallScreen = window.innerWidth < 768; // Breakpoint for responsiveness
+        const visibleSlides = isSmallScreen ? 3 : 5; // Visible slides in viewport
+
+        slides.forEach((slide, index) => {
+            slide.style.transition = "transform 0.5s ease, left 0.5s ease"; // Smooth transitions
+            slide.style.opacity = "1"; // Ensure visibility
+            slide.style.zIndex = "1"; // Default z-index
+
+            // Calculate position relative to the current index
+            const offset = (index - currentIndex + slides.length) % slides.length;
+
+            if (offset === 0) {
+                // Center slide
+                slide.style.left = "50%";
+                slide.style.transform = "translate(-50%, -50%) scale(1.1)";
+                slide.style.zIndex = "3";
+            } else if (offset === 1) {
+                // Immediate right slide
+                slide.style.left = visibleSlides === 3 ? "85%" : "70%";
+                slide.style.transform = "translate(-50%, -50%) scale(0.9)";
+                slide.style.zIndex = "2";
+            } else if (offset === slides.length - 1 || offset === -1) {
+                // Immediate left slide
+                slide.style.left = visibleSlides === 3 ? "15%" : "30%";
+                slide.style.transform = "translate(-50%, -50%) scale(0.9)";
+                slide.style.zIndex = "2";
+            } else if (offset === slides.length - 2 || offset === -2) {
+                // Far left slide (slightly off-canvas and smaller)
+                slide.style.left = visibleSlides === 5 ? "10%" : "-9999px";
+                slide.style.transform = "translate(-50%, -50%) scale(0.8)";
+                slide.style.zIndex = "1";
+                slide.style.opacity = visibleSlides === 5 ? "1" : "0";
+            } else if (offset === 2) {
+                // Far right slide (slightly off-canvas and smaller)
+                slide.style.left = visibleSlides === 5 ? "90%" : "-9999px";
+                slide.style.transform = "translate(-50%, -50%) scale(0.8)";
+                slide.style.zIndex = "1";
+                slide.style.opacity = visibleSlides === 5 ? "1" : "0";
+            } else {
+                // Hidden slides (off-canvas)
+                slide.style.left = offset < 0 ? "-9999px" : "9999px";
+                slide.style.transform = "translate(-50%, -50%) scale(0.8)";
+                slide.style.opacity = "0";
+            }
+        });
+    }
+
+    function nextSlide() {
+        const farRightIndex = (currentIndex + 2) % slides.length;
+        const farRightSlide = slides[farRightIndex];
+
+        // Preload the next incoming slide
+        farRightSlide.style.transition = "none"; // Disable transition for pre-positioning
+        farRightSlide.style.left = "90%"; // Position off-canvas to the right
+        farRightSlide.style.transform = "translate(-50%, -50%) scale(0.8)"; // Match the stack
+        farRightSlide.style.zIndex = "1";
+
+        // Update the current index and trigger the transition
+        currentIndex = (currentIndex + 1) % slides.length;
+        setTimeout(updateSlides, 0); // Ensure no visual delay
+    }
+
+    function prevSlide() {
+        const farLeftIndex = (currentIndex - 2 + slides.length) % slides.length;
+        const farLeftSlide = slides[farLeftIndex];
+
+        // Preload the previous incoming slide
+        farLeftSlide.style.transition = "none"; // Disable transition for pre-positioning
+        farLeftSlide.style.left = "10%"; // Position off-canvas to the left
+        farLeftSlide.style.transform = "translate(-50%, -50%) scale(0.8)"; // Match the stack
+        farLeftSlide.style.zIndex = "1";
+
+        // Update the current index and trigger the transition
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        setTimeout(updateSlides, 0); // Ensure no visual delay
+    }
+
+    function startCarousel() {
+        if (!carouselInterval) {
+            carouselInterval = setInterval(nextSlide, 2000);
+        }
+    }
+
+    function pauseCarousel() {
+        clearInterval(carouselInterval);
+        carouselInterval = null;
+    }
+
+    // Initialize the carousel
+    updateSlides();
+    startCarousel();
+
+    // Pause on hover
+    carouselWrapper.addEventListener("mouseenter", pauseCarousel);
+    carouselWrapper.addEventListener("mouseleave", startCarousel);
+
+    // Keyboard navigation
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") {
+            pauseCarousel();
+            nextSlide();
+        } else if (e.key === "ArrowLeft") {
+            pauseCarousel();
+            prevSlide();
+        }
+    });
+
+    // Drag handling
+    function startDrag(e) {
+        isDragging = true;
+        startX = e.type === "touchstart" ? e.touches[0].clientX : e.clientX;
+        pauseCarousel();
+    }
+
+    function dragMove(e) {
+        if (!isDragging) return;
+        const currentX = e.type === "touchmove" ? e.touches[0].clientX : e.clientX;
+        const diffX = startX - currentX;
+
+        if (Math.abs(diffX) > 50) {
+            if (diffX > 0) nextSlide();
+            else prevSlide();
+
+            isDragging = false;
+        }
+    }
+
+    function endDrag() {
+        isDragging = false;
+        startCarousel();
+    }
+
+    // Add event listeners for dragging
+    carouselWrapper.addEventListener("touchstart", startDrag);
+    carouselWrapper.addEventListener("touchmove", dragMove);
+    carouselWrapper.addEventListener("touchend", endDrag);
+    carouselWrapper.addEventListener("mousedown", startDrag);
+    carouselWrapper.addEventListener("mousemove", dragMove);
+    carouselWrapper.addEventListener("mouseup", endDrag);
+    carouselWrapper.addEventListener("mouseleave", endDrag);
+});
+
+
+
+</script>
 
 
 <div class="pro-section gray-container" id="favorite-hosts-content">
@@ -2658,149 +2811,6 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
   </div>
 </div>
-
-
-
-
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const carouselWrapper = document.querySelector('.carousel-wrapper');
-    const slides = Array.from(document.querySelectorAll('.carousel-slide'));
-    let currentIndex = 2; // Start with the third slide as the center
-    let isPaused = false;
-    let isDragging = false;
-    let startX = 0;
-    let currentX = 0;
-    let carouselInterval;
-
-    function updateSlides() {
-        slides.forEach((slide, index) => {
-            slide.classList.remove('center', 'left', 'right', 'left-far', 'right-far');
-            if (index === currentIndex) {
-                slide.classList.add('center');
-            } else if (index === (currentIndex - 1 + slides.length) % slides.length) {
-                slide.classList.add('left');
-            } else if (index === (currentIndex + 1) % slides.length) {
-                slide.classList.add('right');
-            } else if (index === (currentIndex - 2 + slides.length) % slides.length) {
-                slide.classList.add('left-far');
-            } else if (index === (currentIndex + 2) % slides.length) {
-                slide.classList.add('right-far');
-            }
-        });
-    }
-
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateSlides();
-    }
-
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        updateSlides();
-    }
-
-    function startCarousel() {
-        if (!carouselInterval) { // Only start a new interval if one doesn’t already exist
-            carouselInterval = setInterval(nextSlide, 2000);
-        }
-    }
-
-    function pauseCarousel() {
-        clearInterval(carouselInterval);
-        carouselInterval = null; // Reset interval reference
-    }
-
-    // Initialize the carousel
-    updateSlides();
-    startCarousel();
-
-    // Hover to pause (desktop)
-    carouselWrapper.addEventListener("mouseenter", () => {
-        isPaused = true;
-        pauseCarousel();
-    });
-
-    carouselWrapper.addEventListener("mouseleave", () => {
-        isPaused = false;
-        startCarousel();
-    });
-
-    // Prevent default drag behavior for images
-    slides.forEach(slide => slide.addEventListener('dragstart', (e) => e.preventDefault()));
-
-    // Start drag handling for both touch and mouse
-    function startDragging(e) {
-        isDragging = true;
-        startX = e.type === "touchstart" ? e.touches[0].clientX : e.clientX;
-        pauseCarousel(); // Pause carousel during drag
-    }
-
-    function dragMove(e) {
-        if (!isDragging) return;
-        currentX = e.type === "touchmove" ? e.touches[0].clientX : e.clientX;
-        const diffX = startX - currentX;
-
-        // Detect drag threshold and determine direction
-        if (Math.abs(diffX) > 50) { // Adjust threshold if needed
-            if (diffX > 0) nextSlide(); // Drag left
-            else prevSlide(); // Drag right
-
-            isDragging = false; // Reset drag state to avoid multiple triggers
-        }
-    }
-
-    function endDragging() {
-        isDragging = false;
-        if (!isPaused) { // Only restart if not paused
-            startCarousel(); // Resume autoplay after drag ends
-        }
-    }
-
-    // Touch events
-    carouselWrapper.addEventListener("touchstart", startDragging);
-    carouselWrapper.addEventListener("touchmove", dragMove);
-    carouselWrapper.addEventListener("touchend", endDragging);
-
-    // Mouse events
-    carouselWrapper.addEventListener("mousedown", (e) => {
-        e.preventDefault(); // Prevent image dragging
-        startDragging(e);
-    });
-    carouselWrapper.addEventListener("mousemove", dragMove);
-    carouselWrapper.addEventListener("mouseup", endDragging);
-    carouselWrapper.addEventListener("mouseleave", endDragging); // End drag if mouse leaves container
-});
-
-
-function updateSlides() {
-    const isSmallScreen = window.innerWidth < 767;
-
-    slides.forEach((slide, index) => {
-        slide.classList.remove('center', 'left', 'right', 'left-far', 'right-far');
-
-        if (index === currentIndex) {
-            slide.classList.add('center');
-        } else if (index === (currentIndex - 1 + slides.length) % slides.length) {
-            slide.classList.add('left');
-        } else if (index === (currentIndex + 1) % slides.length) {
-            slide.classList.add('right');
-        } else if (!isSmallScreen) {
-            if (index === (currentIndex - 2 + slides.length) % slides.length) {
-                slide.classList.add('left-far');
-            } else if (index === (currentIndex + 2) % slides.length) {
-                slide.classList.add('right-far');
-            }
-        }
-    });
-}
-
-// Listen for resize events to update the layout
-window.addEventListener("resize", updateSlides);
-
-</script>
 
 
 <div class="pro-section green-container" id="pro-tip-4">
