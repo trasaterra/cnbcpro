@@ -739,11 +739,6 @@
 
 
 
-      /*Card Carousel*/
-
-
-
-
 /*Download*/
 
 #download.pro-section {
@@ -1483,6 +1478,141 @@
         width: 45%;
       }
     }
+
+
+    .carousel-container {
+    width: 100vw;
+    height: 50vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.carousel-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 29vw;
+    height: 29vw;
+    transition: transform 0.5s ease, left 0.5s ease, z-index 0.1s linear;
+    transform-origin: center center;
+    will-change: transform, z-index;
+}
+
+.carousel-slide.moving {
+    transition: transform 0.5s ease, left 0.5s ease;
+}
+
+.carousel-slide.subtle-transition {
+    transition: transform 0.3s ease, left 0.3s ease, z-index 0.1s linear;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.carousel-slide.center {
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.1);
+    z-index: 3;
+}
+
+.carousel-slide.left {
+    left: 25%;
+    transform: translate(-50%, -50%) scale(0.9);
+    z-index: 2;
+}
+
+.carousel-slide.right {
+    left: 75%;
+    transform: translate(-50%, -50%) scale(0.9);
+    z-index: 2;
+}
+
+.carousel-slide.left-far,
+.carousel-slide.right-far {
+    transform: translate(-50%, -50%) scale(0.85);
+    z-index: 1;
+}
+
+.carousel-slide.left-far {
+    left: 10%;
+}
+
+.carousel-slide.right-far {
+    left: 90%;
+}
+
+@media (max-width: 767px) {
+    .carousel-container {
+        height: 35vh;
+    }
+    .carousel-slide {
+        width: 43vw;
+        height: 43vw;
+    }
+    .carousel-slide.left-far,
+    .carousel-slide.right-far {
+        display: none;
+    }
+    .carousel-slide.center {
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    .carousel-slide.left {
+        left: 10%;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    .carousel-slide.right {
+        left: 90%;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+}
+@media (min-width: 768px) {
+  .carousel-container {
+      height: 40vh;
+    }
+}
+@media (min-width: 992px) {
+  .carousel-container {
+      height: 45vh;
+    }
+}
+
+@media (min-width: 1200px) {
+  .carousel-container {
+      height: 50vh;
+    }
+}
+@media (min-width: 1400px) {
+  .carousel-container {
+      height: 65vh;
+    }
+}
+@media (min-width: 2000px) {
+    .carousel-container {
+      height: 80vh;
+    }
+}
     
 
     
@@ -1905,7 +2035,7 @@
             </svg>
           </a>
         </p>
-        <hr class="pro-tools-hr" />
+        <hr class="pro-tools-hr">
       </div>
 
       <div class="col-xl-1"></div>
@@ -1985,7 +2115,7 @@
             </svg>
           </a>
         </p>
-        <hr class="pro-tools-hr" />
+        <hr class="pro-tools-hr">
       </div>     
 
     </div>
@@ -2476,141 +2606,7 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 </div>
 
-<style>
-  .carousel-container {
-    width: 100vw;
-    height: 50vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
 
-.carousel-wrapper {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-}
-
-.carousel-slide {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 29vw;
-    height: 29vw;
-    transition: transform 0.5s ease, left 0.5s ease, z-index 0.1s linear;
-    transform-origin: center center;
-    will-change: transform, z-index;
-}
-
-.carousel-slide.moving {
-    transition: transform 0.5s ease, left 0.5s ease;
-}
-
-.carousel-slide.subtle-transition {
-    transition: transform 0.3s ease, left 0.3s ease, z-index 0.1s linear;
-}
-
-.carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-.carousel-slide.center {
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1.1);
-    z-index: 3;
-}
-
-.carousel-slide.left {
-    left: 25%;
-    transform: translate(-50%, -50%) scale(0.9);
-    z-index: 2;
-}
-
-.carousel-slide.right {
-    left: 75%;
-    transform: translate(-50%, -50%) scale(0.9);
-    z-index: 2;
-}
-
-.carousel-slide.left-far,
-.carousel-slide.right-far {
-    transform: translate(-50%, -50%) scale(0.85);
-    z-index: 1;
-}
-
-.carousel-slide.left-far {
-    left: 10%;
-}
-
-.carousel-slide.right-far {
-    left: 90%;
-}
-
-@media (max-width: 767px) {
-    .carousel-container {
-        height: 35vh;
-    }
-    .carousel-slide {
-        width: 43vw;
-        height: 43vw;
-    }
-    .carousel-slide.left-far,
-    .carousel-slide.right-far {
-        display: none;
-    }
-    .carousel-slide.center {
-        left: 50%;
-        transform: translate(-50%, -50%) scale(1.1);
-    }
-    .carousel-slide.left {
-        left: 10%;
-        transform: translate(-50%, -50%) scale(0.9);
-    }
-    .carousel-slide.right {
-        left: 90%;
-        transform: translate(-50%, -50%) scale(0.9);
-    }
-}
-@media (min-width: 768px) {
-  .carousel-container {
-      height: 40vh;
-    }
-}
-@media (min-width: 992px) {
-  .carousel-container {
-      height: 45vh;
-    }
-}
-
-@media (min-width: 1200px) {
-  .carousel-container {
-      height: 50vh;
-    }
-}
-@media (min-width: 1400px) {
-  .carousel-container {
-      height: 65vh;
-    }
-}
-@media (min-width: 2000px) {
-    .carousel-container {
-      height: 80vh;
-    }
-    }
-</style>
   <div class="carousel-container">
     <div class="carousel-wrapper">
         
@@ -2845,7 +2841,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </svg>
           </a>
         </p>
-        <hr />
+        <hr>
       </div>
 
       <div class="col col-12 col-md-4">
@@ -2869,7 +2865,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </svg>
           </a>
         </p>
-        <hr />
+        <hr>
       </div>
 
       <div class="col col-12 col-md-4">
