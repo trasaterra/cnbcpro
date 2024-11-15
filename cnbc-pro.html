@@ -1435,9 +1435,7 @@
       .pro-section {
         
       }
-      .carousel-container {
-        height: 50vh;
-      }
+      
       /*Downloads*/
        #download.pro-section {
         margin-top: 150px;
@@ -1451,9 +1449,7 @@
       .container {
         max-width: 1320px;
       }
-      .carousel-container {
-        height: 60vh;
-      }
+      
       /*Downloads*/
        #download.pro-section {
         margin-top: 150px;
@@ -1470,11 +1466,7 @@
         width: 45%;
       }
     }
-    @media (min-width: 2000px) {
-      .carousel-container {
-        height: 80vh;
-      }
-    }
+    
 
     
 
@@ -2426,7 +2418,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <style>
   .carousel-container {
     width: 100vw;
-    height: 60vh;
+    height: 50vh;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -2508,7 +2500,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 @media (max-width: 767px) {
     .carousel-container {
-        height: 40vh;
+        height: 35vh;
     }
     .carousel-slide {
         width: 43vw;
@@ -2531,6 +2523,32 @@ document.addEventListener("DOMContentLoaded", function () {
         transform: translate(-50%, -50%) scale(0.9);
     }
 }
+@media (min-width: 768px) {
+  .carousel-container {
+      height: 40vh;
+    }
+}
+@media (min-width: 992px) {
+  .carousel-container {
+      height: 45vh;
+    }
+}
+
+@media (min-width: 1200px) {
+  .carousel-container {
+      height: 50vh;
+    }
+}
+@media (min-width: 1400px) {
+  .carousel-container {
+      height: 65vh;
+    }
+}
+@media (min-width: 2000px) {
+    .carousel-container {
+      height: 80vh;
+    }
+    }
 </style>
   <div class="carousel-container">
     <div class="carousel-wrapper">
@@ -2588,53 +2606,11 @@ document.addEventListener("DOMContentLoaded", function () {
     let startX = 0;
     let carouselInterval;
 
-    function updateSlides() {
-        const isSmallScreen = window.innerWidth < 768; // Breakpoint for responsiveness
-        const visibleSlides = isSmallScreen ? 3 : 5; // Visible slides in viewport
-
-        slides.forEach((slide, index) => {
-            slide.style.transition = "transform 0.5s ease, left 0.5s ease"; // Smooth transitions
-            slide.style.opacity = "1"; // Ensure visibility
-            slide.style.zIndex = "1"; // Default z-index
-
-            // Calculate position relative to the current index
-            const offset = (index - currentIndex + slides.length) % slides.length;
-
-            if (offset === 0) {
-                // Center slide
-                slide.style.left = "50%";
-                slide.style.transform = "translate(-50%, -50%) scale(1.1)";
-                slide.style.zIndex = "3";
-            } else if (offset === 1) {
-                // Immediate right slide
-                slide.style.left = visibleSlides === 3 ? "85%" : "70%";
-                slide.style.transform = "translate(-50%, -50%) scale(0.9)";
-                slide.style.zIndex = "2";
-            } else if (offset === slides.length - 1 || offset === -1) {
-                // Immediate left slide
-                slide.style.left = visibleSlides === 3 ? "15%" : "30%";
-                slide.style.transform = "translate(-50%, -50%) scale(0.9)";
-                slide.style.zIndex = "2";
-            } else if (offset === slides.length - 2 || offset === -2) {
-                // Far left slide (slightly off-canvas and smaller)
-                slide.style.left = visibleSlides === 5 ? "10%" : "-9999px";
-                slide.style.transform = "translate(-50%, -50%) scale(0.8)";
-                slide.style.zIndex = "1";
-                slide.style.opacity = visibleSlides === 5 ? "1" : "0";
-            } else if (offset === 2) {
-                // Far right slide (slightly off-canvas and smaller)
-                slide.style.left = visibleSlides === 5 ? "90%" : "-9999px";
-                slide.style.transform = "translate(-50%, -50%) scale(0.8)";
-                slide.style.zIndex = "1";
-                slide.style.opacity = visibleSlides === 5 ? "1" : "0";
-            } else {
-                // Hidden slides (off-canvas)
-                slide.style.left = offset < 0 ? "-9999px" : "9999px";
-                slide.style.transform = "translate(-50%, -50%) scale(0.8)";
-                slide.style.opacity = "0";
-            }
-        });
-    }
+    // Prevent image dragging
+    slides.forEach(slide => {
+        const img = slide.querySelector("img");
+        if (img) img.setAttribute("draggable", "false");
+    });
 
     function nextSlide() {
         const farRightIndex = (currentIndex + 2) % slides.length;
@@ -2643,12 +2619,15 @@ document.addEventListener("DOMContentLoaded", function () {
         // Preload the next incoming slide
         farRightSlide.style.transition = "none"; // Disable transition for pre-positioning
         farRightSlide.style.left = "90%"; // Position off-canvas to the right
-        farRightSlide.style.transform = "translate(-50%, -50%) scale(0.8)"; // Match the stack
+        farRightSlide.style.transform = "translate(-50%, -50%) scale(0.85)"; // Match the stack
         farRightSlide.style.zIndex = "1";
 
-        // Update the current index and trigger the transition
-        currentIndex = (currentIndex + 1) % slides.length;
-        setTimeout(updateSlides, 0); // Ensure no visual delay
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlides();
+            }, 50); // Minimal delay to ensure smoothness
+        });
     }
 
     function prevSlide() {
@@ -2658,12 +2637,57 @@ document.addEventListener("DOMContentLoaded", function () {
         // Preload the previous incoming slide
         farLeftSlide.style.transition = "none"; // Disable transition for pre-positioning
         farLeftSlide.style.left = "10%"; // Position off-canvas to the left
-        farLeftSlide.style.transform = "translate(-50%, -50%) scale(0.8)"; // Match the stack
+        farLeftSlide.style.transform = "translate(-50%, -50%) scale(0.85)"; // Match the stack
         farLeftSlide.style.zIndex = "1";
 
-        // Update the current index and trigger the transition
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        setTimeout(updateSlides, 0); // Ensure no visual delay
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateSlides();
+            }, 50); // Minimal delay to ensure smoothness
+        });
+    }
+
+    function updateSlides() {
+        slides.forEach((slide, index) => {
+            slide.style.transition = "transform 0.5s ease, left 0.5s ease"; // Smooth transitions
+            slide.style.opacity = "1"; // Ensure visibility
+            slide.style.zIndex = "1"; // Default z-index
+
+            const offset = (index - currentIndex + slides.length) % slides.length;
+
+            if (offset === 0) {
+                // Center slide
+                slide.style.left = "50%";
+                slide.style.transform = "translate(-50%, -50%) scale(1.1)";
+                slide.style.zIndex = "3";
+            } else if (offset === 1) {
+                // Immediate right slide
+                slide.style.left = "75%";
+                slide.style.transform = "translate(-50%, -50%) scale(0.9)";
+                slide.style.zIndex = "2";
+            } else if (offset === slides.length - 1) {
+                // Immediate left slide
+                slide.style.left = "25%";
+                slide.style.transform = "translate(-50%, -50%) scale(0.9)";
+                slide.style.zIndex = "2";
+            } else if (offset === 2) {
+                // Far right slide
+                slide.style.left = "90%";
+                slide.style.transform = "translate(-50%, -50%) scale(0.8)";
+                slide.style.zIndex = "1";
+            } else if (offset === slides.length - 2) {
+                // Far left slide
+                slide.style.left = "10%";
+                slide.style.transform = "translate(-50%, -50%) scale(0.8)";
+                slide.style.zIndex = "1";
+            } else {
+                // Hidden slides (off-canvas)
+                slide.style.left = offset < 0 ? "-9999px" : "9999px";
+                slide.style.transform = "translate(-50%, -50%) scale(0.8)";
+                slide.style.opacity = "0";
+            }
+        });
     }
 
     function startCarousel() {
@@ -2701,6 +2725,7 @@ document.addEventListener("DOMContentLoaded", function () {
         isDragging = true;
         startX = e.type === "touchstart" ? e.touches[0].clientX : e.clientX;
         pauseCarousel();
+        e.preventDefault(); // Prevent default behavior (e.g., image dragging)
     }
 
     function dragMove(e) {
@@ -2730,6 +2755,7 @@ document.addEventListener("DOMContentLoaded", function () {
     carouselWrapper.addEventListener("mouseup", endDrag);
     carouselWrapper.addEventListener("mouseleave", endDrag);
 });
+
 
 
 
