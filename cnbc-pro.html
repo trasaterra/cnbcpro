@@ -30,8 +30,6 @@
 
 }
 
- 
-
 @font-face {
 
     font-family: 'Proxima Nova';
@@ -47,8 +45,6 @@
     font-display: swap;
 
 }
-
- 
 
 @font-face {
 
@@ -66,8 +62,6 @@
 
 }
 
- 
-
 @font-face {
 
     font-family: 'Proxima Nova';
@@ -83,8 +77,6 @@
     font-display: swap;
 
 }
-
- 
 
 @font-face {
 
@@ -102,8 +94,6 @@
 
 }
 
- 
-
 @font-face {
 
     font-family: 'Proxima Nova';
@@ -119,8 +109,6 @@
     font-display: swap;
 
 }
-
- 
 
 @font-face {
 
@@ -138,7 +126,23 @@
 
 }
 
- 
+html, body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+* {
+    box-sizing: border-box;
+}
+.hosts-overflow {
+  max-width:100%;
+  overflow:hidden;
+  position:relative;
+  left:0;
+  right:0;
+  background-color:red;
+}
 
 body {
 
@@ -147,7 +151,6 @@ body {
     min-height: 100%;
     font-family: 'Proxima Nova', sans-serif;
     color:#171717;
-    overflow-x: hidden;
 }
 
 
@@ -1672,6 +1675,7 @@ body {
 
        .informed-scroll-container {
           height: auto;
+          overflow: hidden;
        }
        .informed-gradient {
           display: none;
@@ -1722,7 +1726,7 @@ body {
         height: 4px; /* Thickness of the line for horizontal view */
         background-color: rgba(186, 217, 197, 0.5);
       }
-      .tool-tip-column.no-line::before {
+      .tool-tip-column.no-line::before, {
         background-color: transparent;
       }
       .informed-icon {
@@ -2130,6 +2134,9 @@ body {
     transform-origin: center;
     margin:0 0;
   }
+  .tool-tip-column.last-tool-col::before {
+    background-color: transparent !important;
+  }
 
 }
 
@@ -2151,6 +2158,10 @@ body {
   }
   #download.pro-section {
     padding:28px;
+  }
+
+  .tool-tip-column.last-tool-col::before {
+    background-color: transparent !important;
   }
 
 }
@@ -3078,7 +3089,7 @@ body {
           <!-- Fourth Column -->
           <div class="col col-12 col-lg-3">
             <div class="row">
-              <div class="col col-3 col-md-4 col-lg-12 text-center tool-tip-column no-line">
+              <div class="col col-3 col-md-4 col-lg-12 text-center tool-tip-column no-line last-tool-col">
                 
                   <div class="informed-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none" aria-hidden="true">
@@ -3177,163 +3188,164 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 </div>
 
+<div class="hosts-hoverflow">
+  <div class="pro-section gray-container" id="favorite-hosts-content">
+    <div class="container-fluid" id="ProOnboarding-WatchFavorites-7">
+      <div class="row favorite-hosts-row">
 
-<div class="pro-section gray-container" id="favorite-hosts-content">
-  <div class="container-fluid" id="ProOnboarding-WatchFavorites-7">
-    <div class="row favorite-hosts-row">
+        <div class="col col-12">
+          <h3 class="h2-pro text-center">Multiple Ways to watch to Your Favorite CNBC Shows</h3>
+        </div>
 
-      <div class="col col-12">
-         <h3 class="h2-pro text-center">Multiple Ways to watch to Your Favorite CNBC Shows</h3>
-      </div>
-
-      <div class="col col-12 carousel-col-holder">
-        <div class="carousel-container">
-          <div class="carousel-wrapper">
+        <div class="col col-12 carousel-col-holder">
+          <div class="carousel-container">
+            <div class="carousel-wrapper">
+                
+        
+                <!-- Actual slides -->
+                <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061783-1731439461983-Sara_Eisen.webp?v=1731440954" alt="Sara Eisen"></div>
+        
+                <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061780-1731439461982-Melissa_Lee.webp?v=1731441008" alt="Melissa Lee"></div>
+                
+                <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061776-1731439461981-Joe_Kernen.webp?v=1731441040" alt="Joe Kerne"></div>
+                
+                <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061772-1731439461981-Deirdre_Bosa.webp?v=1731441070" alt="Deirdre Bosa"></div>
+                
+                <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061778-1731439461982-Julia_Boorstin.webp?v=1731441124" alt="Julia Boorstin"></div>
+        
+                <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061774-1731439461981-Frank_Holland.webp?v=1731441164" alt="Frank Holland"></div>
+        
+                <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061775-1731439461981-Jim_Cramer.webp?v=1731441188" alt="Jim Cramer"></div>
+        
+                <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061773-1731439461981-Eamon_Javers.webp?v=1731441254" alt="Eamon Javers"></div>
+        
+                <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061779-1731439461982-Kelly_Evans.webp?v=1731441333" alt="Kelly Evans"></div>
+        
+                <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061768-1731439461984-Bob_Pisani.webp?v=1731441355" alt="Bob Pisani"></div>
+        
+                <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061766-1731439461984-Andrew_Ross.webp?v=1731441390" alt="Andrew Ross"></div>
+        
+                <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061769-1731439461984-Brian_Sullivan.webp?v=1731441485" alt="Brian Sullivan"></div>
+        
+                <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061770-1731439461984-Carl_Quintanilla.webp?v=1731441509" alt="Carl Quintanilla"></div>
+        
+                <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061771-1731439461980-David_Faber.webp?v=1731441568" alt="David Faber"></div>
+        
+                <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061781-1731439461982-Michael_Santoli.webp?v=1731441597" alt="Michael Santoli"></div>
+        
+                <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061782-1731439461983-Morgan_Brennan.webp?v=1731441631" alt="Morgan Brennan"></div>
+        
+                <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061784-1731439461983-Scott_Wapner.webp?v=1731441668" alt="Scott Wapner"></div>
+        
+                <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061785-1731439461983-Tyler_Mathisen.webp?v=1731441709" alt="Tyler Mathisen"></div>
+        
               
-      
-              <!-- Actual slides -->
-              <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061783-1731439461983-Sara_Eisen.webp?v=1731440954" alt="Sara Eisen"></div>
-      
-              <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061780-1731439461982-Melissa_Lee.webp?v=1731441008" alt="Melissa Lee"></div>
-              
-              <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061776-1731439461981-Joe_Kernen.webp?v=1731441040" alt="Joe Kerne"></div>
-              
-              <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061772-1731439461981-Deirdre_Bosa.webp?v=1731441070" alt="Deirdre Bosa"></div>
-              
-              <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061778-1731439461982-Julia_Boorstin.webp?v=1731441124" alt="Julia Boorstin"></div>
-      
-              <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061774-1731439461981-Frank_Holland.webp?v=1731441164" alt="Frank Holland"></div>
-      
-              <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061775-1731439461981-Jim_Cramer.webp?v=1731441188" alt="Jim Cramer"></div>
-      
-              <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061773-1731439461981-Eamon_Javers.webp?v=1731441254" alt="Eamon Javers"></div>
-      
-              <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061779-1731439461982-Kelly_Evans.webp?v=1731441333" alt="Kelly Evans"></div>
-      
-              <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061768-1731439461984-Bob_Pisani.webp?v=1731441355" alt="Bob Pisani"></div>
-      
-              <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061766-1731439461984-Andrew_Ross.webp?v=1731441390" alt="Andrew Ross"></div>
-      
-              <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061769-1731439461984-Brian_Sullivan.webp?v=1731441485" alt="Brian Sullivan"></div>
-      
-              <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061770-1731439461984-Carl_Quintanilla.webp?v=1731441509" alt="Carl Quintanilla"></div>
-      
-              <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061771-1731439461980-David_Faber.webp?v=1731441568" alt="David Faber"></div>
-      
-              <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061781-1731439461982-Michael_Santoli.webp?v=1731441597" alt="Michael Santoli"></div>
-      
-              <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061782-1731439461983-Morgan_Brennan.webp?v=1731441631" alt="Morgan Brennan"></div>
-      
-              <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061784-1731439461983-Scott_Wapner.webp?v=1731441668" alt="Scott Wapner"></div>
-      
-              <div class="carousel-slide"><img src="https://image.cnbcfm.com/api/v1/image/108061785-1731439461983-Tyler_Mathisen.webp?v=1731441709" alt="Tyler Mathisen"></div>
-      
-             
-      
+        
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="col col-12 col-md-4">
-
-        <svg class="fav-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none" aria-hidden="true">
-          <path d="M36.7998 5.42993H10.3998C9.0758 5.42993 7.9998 6.50593 7.9998 7.82993V8.22993H6.7998C5.4758 8.22993 4.3998 9.30593 4.3998 10.6299V11.8299H3.1998C1.8758 11.8299 0.799805 12.9059 0.799805 14.2299V32.6299C0.799805 33.9539 1.8758 35.0299 3.1998 35.0299H30.3998C31.7238 35.0299 32.7998 33.9539 32.7998 32.6299V31.4299H33.9998C35.3238 31.4299 36.3998 30.3539 36.3998 29.0299V27.8299H36.7998C38.1238 27.8299 39.1998 26.7539 39.1998 25.4299V7.82993C39.1998 6.50593 38.1238 5.42993 36.7998 5.42993ZM31.1998 32.6299C31.1998 33.0699 30.8398 33.4299 30.3998 33.4299H3.1998C2.7598 33.4299 2.3998 33.0699 2.3998 32.6299V14.2299C2.3998 13.7899 2.7598 13.4299 3.1998 13.4299H4.3998V29.0299C4.3998 30.3539 5.4758 31.4299 6.7998 31.4299H31.1998V32.6299ZM34.7998 29.0299C34.7998 29.4699 34.4398 29.8299 33.9998 29.8299H6.7998C6.3598 29.8299 5.9998 29.4699 5.9998 29.0299V10.6299C5.9998 10.1899 6.3598 9.82993 6.7998 9.82993H7.9998V25.4299C7.9998 26.7539 9.0758 27.8299 10.3998 27.8299H34.7998V29.0299ZM37.5998 25.4299C37.5998 25.8699 37.2398 26.2299 36.7998 26.2299H10.3998C9.9598 26.2299 9.5998 25.8699 9.5998 25.4299V7.82993C9.5998 7.38993 9.9598 7.02993 10.3998 7.02993H36.7998C37.2398 7.02993 37.5998 7.38993 37.5998 7.82993V25.4299Z" fill="#047E2E"/>
-          <path d="M27.7323 16.1019L21.5203 12.9979C20.9883 12.7339 20.3643 13.1179 20.3643 13.7139V19.9259C20.3643 20.5219 20.9883 20.9059 21.5203 20.6419L27.7323 17.5379C28.3203 17.2419 28.3203 16.4019 27.7323 16.1059V16.1019Z" fill="#047E2E"/>
-        </svg>
-
         
-        <h4 class="h4-pro">Full Episodes On-Demand</h4>
-        <p class="p-pro-sub">
-          Catch up with access to our complete archive of full episodes on-demand, so you never miss a moment.  
-        </p>
-        <p>
-          <a class="target-link" href="https://www.cnbc.com/live-tv/full-episodes/" target="_blank">
-            <span>Explore</span> 
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none" aria-hidden="true">
-              <path d="M2.58225 0.867188C2.25654 0.867188 1.99326 1.13294 1.99326 1.46041C1.99326 1.78786 2.25654 2.05363 2.58225 2.05363H12.3897L0.672713 13.8545C0.442429 14.0865 0.442429 14.4614 0.672713 14.6934C0.787568 14.8091 0.938352 14.8672 1.08912 14.8672C1.23992 14.8672 1.39073 14.8091 1.50558 14.6934L13.322 2.79214V12.8704C13.322 13.1979 13.5853 13.4636 13.911 13.4636C14.2368 13.4636 14.5 13.1979 14.5 12.8704V1.46041C14.5 1.13294 14.2368 0.867188 13.911 0.867188H2.58225Z" fill="#101418" stroke="#101418"/>
-            </svg>
-          </a>
-        </p>
-        <hr>
-      </div>
+        <div class="col col-12 col-md-4">
 
-      <div class="col col-12 col-md-4">
-        <svg class="fav-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none" aria-hidden="true">
-          <path d="M34.8 34.6302V15.4302H29.2V34.6302H26.8V23.4302H21.2V34.6302H18.8V19.4302H13.2V34.6302H10.8V23.4302H5.2V34.6302H0V36.2302H40V34.6302H34.8ZM6.8 34.6302V25.0302H9.2V34.6302H6.8ZM14.8 34.6302V21.0302H17.2V34.6302H14.8ZM22.8 34.6302V25.0302H25.2V34.6302H22.8ZM30.8 34.6302V17.0302H33.2V34.6302H30.8Z" fill="#047E2E"/>
-          <path d="M34.8001 5.02998V4.22998H30.6041C30.1641 4.22998 29.8041 4.58998 29.8041 5.02998C29.8041 5.46998 30.1641 5.82998 30.6041 5.82998H32.0681L23.8401 14.058L15.9921 10.134L5.62812 15.522C5.23612 15.726 5.08412 16.21 5.28812 16.602C5.43212 16.878 5.70812 17.034 6.00012 17.034C6.12412 17.034 6.25212 17.006 6.36812 16.942L16.0041 11.93L24.1561 16.006L33.1961 6.96198V8.42598C33.1961 8.86598 33.5561 9.22598 33.9961 9.22598C34.4361 9.22598 34.7961 8.86598 34.7961 8.42598V5.03398L34.8001 5.02998Z" fill="#047E2E"/>
-          <path d="M9.20029 25.0298H6.80029V34.6298H9.20029V25.0298Z" fill="#D9ECE0"/>
-          <path d="M17.2 21.0298H14.8V34.6298H17.2V21.0298Z" fill="#D9ECE0"/>
-          <path d="M25.2 25.0298H22.8V34.6298H25.2V25.0298Z" fill="#D9ECE0"/>
-          <path d="M33.2003 17.0298H30.8003V34.6298H33.2003V17.0298Z" fill="#D9ECE0"/>
-        </svg>
-        <h4 class="h4-pro">Livestream with <br>Market Data</h4>
-        <p class="p-pro-sub">
-          Watch every minute of market coverage and stay informed from pre-market buzz to the closing bell and markets around the globe.
-        </p>
-        <p>
-          <a class="target-link" href="https://www.cnbc.com/live-tv/" target="_blank">
-            <span>Watch Live</span> 
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none" aria-hidden="true">
-              <path d="M2.58225 0.867188C2.25654 0.867188 1.99326 1.13294 1.99326 1.46041C1.99326 1.78786 2.25654 2.05363 2.58225 2.05363H12.3897L0.672713 13.8545C0.442429 14.0865 0.442429 14.4614 0.672713 14.6934C0.787568 14.8091 0.938352 14.8672 1.08912 14.8672C1.23992 14.8672 1.39073 14.8091 1.50558 14.6934L13.322 2.79214V12.8704C13.322 13.1979 13.5853 13.4636 13.911 13.4636C14.2368 13.4636 14.5 13.1979 14.5 12.8704V1.46041C14.5 1.13294 14.2368 0.867188 13.911 0.867188H2.58225Z" fill="#101418" stroke="#101418"/>
-            </svg>
-          </a>
-        </p>
-        <hr>
-      </div>
+          <svg class="fav-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none" aria-hidden="true">
+            <path d="M36.7998 5.42993H10.3998C9.0758 5.42993 7.9998 6.50593 7.9998 7.82993V8.22993H6.7998C5.4758 8.22993 4.3998 9.30593 4.3998 10.6299V11.8299H3.1998C1.8758 11.8299 0.799805 12.9059 0.799805 14.2299V32.6299C0.799805 33.9539 1.8758 35.0299 3.1998 35.0299H30.3998C31.7238 35.0299 32.7998 33.9539 32.7998 32.6299V31.4299H33.9998C35.3238 31.4299 36.3998 30.3539 36.3998 29.0299V27.8299H36.7998C38.1238 27.8299 39.1998 26.7539 39.1998 25.4299V7.82993C39.1998 6.50593 38.1238 5.42993 36.7998 5.42993ZM31.1998 32.6299C31.1998 33.0699 30.8398 33.4299 30.3998 33.4299H3.1998C2.7598 33.4299 2.3998 33.0699 2.3998 32.6299V14.2299C2.3998 13.7899 2.7598 13.4299 3.1998 13.4299H4.3998V29.0299C4.3998 30.3539 5.4758 31.4299 6.7998 31.4299H31.1998V32.6299ZM34.7998 29.0299C34.7998 29.4699 34.4398 29.8299 33.9998 29.8299H6.7998C6.3598 29.8299 5.9998 29.4699 5.9998 29.0299V10.6299C5.9998 10.1899 6.3598 9.82993 6.7998 9.82993H7.9998V25.4299C7.9998 26.7539 9.0758 27.8299 10.3998 27.8299H34.7998V29.0299ZM37.5998 25.4299C37.5998 25.8699 37.2398 26.2299 36.7998 26.2299H10.3998C9.9598 26.2299 9.5998 25.8699 9.5998 25.4299V7.82993C9.5998 7.38993 9.9598 7.02993 10.3998 7.02993H36.7998C37.2398 7.02993 37.5998 7.38993 37.5998 7.82993V25.4299Z" fill="#047E2E"/>
+            <path d="M27.7323 16.1019L21.5203 12.9979C20.9883 12.7339 20.3643 13.1179 20.3643 13.7139V19.9259C20.3643 20.5219 20.9883 20.9059 21.5203 20.6419L27.7323 17.5379C28.3203 17.2419 28.3203 16.4019 27.7323 16.1059V16.1019Z" fill="#047E2E"/>
+          </svg>
 
-      <div class="col col-12 col-md-4">
+          
+          <h4 class="h4-pro">Full Episodes On-Demand</h4>
+          <p class="p-pro-sub">
+            Catch up with access to our complete archive of full episodes on-demand, so you never miss a moment.  
+          </p>
+          <p>
+            <a class="target-link" href="https://www.cnbc.com/live-tv/full-episodes/" target="_blank">
+              <span>Explore</span> 
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none" aria-hidden="true">
+                <path d="M2.58225 0.867188C2.25654 0.867188 1.99326 1.13294 1.99326 1.46041C1.99326 1.78786 2.25654 2.05363 2.58225 2.05363H12.3897L0.672713 13.8545C0.442429 14.0865 0.442429 14.4614 0.672713 14.6934C0.787568 14.8091 0.938352 14.8672 1.08912 14.8672C1.23992 14.8672 1.39073 14.8091 1.50558 14.6934L13.322 2.79214V12.8704C13.322 13.1979 13.5853 13.4636 13.911 13.4636C14.2368 13.4636 14.5 13.1979 14.5 12.8704V1.46041C14.5 1.13294 14.2368 0.867188 13.911 0.867188H2.58225Z" fill="#101418" stroke="#101418"/>
+              </svg>
+            </a>
+          </p>
+          <hr>
+        </div>
 
-        
+        <div class="col col-12 col-md-4">
+          <svg class="fav-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none" aria-hidden="true">
+            <path d="M34.8 34.6302V15.4302H29.2V34.6302H26.8V23.4302H21.2V34.6302H18.8V19.4302H13.2V34.6302H10.8V23.4302H5.2V34.6302H0V36.2302H40V34.6302H34.8ZM6.8 34.6302V25.0302H9.2V34.6302H6.8ZM14.8 34.6302V21.0302H17.2V34.6302H14.8ZM22.8 34.6302V25.0302H25.2V34.6302H22.8ZM30.8 34.6302V17.0302H33.2V34.6302H30.8Z" fill="#047E2E"/>
+            <path d="M34.8001 5.02998V4.22998H30.6041C30.1641 4.22998 29.8041 4.58998 29.8041 5.02998C29.8041 5.46998 30.1641 5.82998 30.6041 5.82998H32.0681L23.8401 14.058L15.9921 10.134L5.62812 15.522C5.23612 15.726 5.08412 16.21 5.28812 16.602C5.43212 16.878 5.70812 17.034 6.00012 17.034C6.12412 17.034 6.25212 17.006 6.36812 16.942L16.0041 11.93L24.1561 16.006L33.1961 6.96198V8.42598C33.1961 8.86598 33.5561 9.22598 33.9961 9.22598C34.4361 9.22598 34.7961 8.86598 34.7961 8.42598V5.03398L34.8001 5.02998Z" fill="#047E2E"/>
+            <path d="M9.20029 25.0298H6.80029V34.6298H9.20029V25.0298Z" fill="#D9ECE0"/>
+            <path d="M17.2 21.0298H14.8V34.6298H17.2V21.0298Z" fill="#D9ECE0"/>
+            <path d="M25.2 25.0298H22.8V34.6298H25.2V25.0298Z" fill="#D9ECE0"/>
+            <path d="M33.2003 17.0298H30.8003V34.6298H33.2003V17.0298Z" fill="#D9ECE0"/>
+          </svg>
+          <h4 class="h4-pro">Livestream with <br>Market Data</h4>
+          <p class="p-pro-sub">
+            Watch every minute of market coverage and stay informed from pre-market buzz to the closing bell and markets around the globe.
+          </p>
+          <p>
+            <a class="target-link" href="https://www.cnbc.com/live-tv/" target="_blank">
+              <span>Watch Live</span> 
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none" aria-hidden="true">
+                <path d="M2.58225 0.867188C2.25654 0.867188 1.99326 1.13294 1.99326 1.46041C1.99326 1.78786 2.25654 2.05363 2.58225 2.05363H12.3897L0.672713 13.8545C0.442429 14.0865 0.442429 14.4614 0.672713 14.6934C0.787568 14.8091 0.938352 14.8672 1.08912 14.8672C1.23992 14.8672 1.39073 14.8091 1.50558 14.6934L13.322 2.79214V12.8704C13.322 13.1979 13.5853 13.4636 13.911 13.4636C14.2368 13.4636 14.5 13.1979 14.5 12.8704V1.46041C14.5 1.13294 14.2368 0.867188 13.911 0.867188H2.58225Z" fill="#101418" stroke="#101418"/>
+              </svg>
+            </a>
+          </p>
+          <hr>
+        </div>
 
-        <svg class="fav-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-         viewBox="0 0 40 41" style="enable-background:new 0 0 40 41;" xml:space="preserve" aria-hidden="true">
-        <style type="text/css">
-          .st0{clip-path:url(#SVGID_00000053526766090557037100000007591314763068317116_);}
-          .st1{fill:#047E2E;}
-          .st2{fill:#D9ECE0;}
-        </style>
-        <g>
-          <defs>
-            <rect id="SVGID_1_" y="0.2" width="40" height="40"/>
-          </defs>
-          <clipPath id="SVGID_00000180332622103487601240000012876395669553843603_">
-            <use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
-          </clipPath>
-          <g style="clip-path:url(#SVGID_00000180332622103487601240000012876395669553843603_);">
-            <path class="st1" d="M20,23.5c-3.3,0-6-2.7-6-6s2.7-6,6-6s6,2.7,6,6S23.3,23.5,20,23.5z M20,13c-2.4,0-4.4,2-4.4,4.4
-              s2,4.4,4.4,4.4s4.4-2,4.4-4.4S22.4,13,20,13z"/>
-            <path class="st1" d="M30.8,33.8H9.2v-4.9c0.2-2.6,3.5-4.6,7.6-4.6h6.5c4.1,0,7.4,2,7.6,4.6V33.8L30.8,33.8z M10.8,32.2h18.5v-3.3
-              c-0.1-1.4-2.5-3-6-3h-6.5c-3.5,0-5.9,1.6-6,3.1V32.2L10.8,32.2z"/>
-            <path class="st2" d="M31.5,26.2c0.6,0.8,0.9,1.7,0.9,2.6v0v0v5h0H40v-4c-0.1-2.1-2.8-3.7-6.1-3.7L31.5,26.2L31.5,26.2z"/>
-            <path class="st1" d="M31.5,26.2c0.4,0.5,0.6,1,0.8,1.6H34c2.5,0,4.4,1.1,4.5,2.1v2.3h-6v1.6H40v-4c-0.1-2.1-2.8-3.7-6.1-3.7
-              L31.5,26.2L31.5,26.2z"/>
-            <path class="st2" d="M8.5,26.2C8,27,7.7,27.8,7.6,28.8v0v0v5h0H0v-4c0.1-2.1,2.8-3.7,6.1-3.7L8.5,26.2L8.5,26.2z"/>
-            <path class="st1" d="M8.5,26.2c-0.4,0.5-0.6,1-0.8,1.6H6.1c-2.5,0-4.4,1.1-4.5,2.1v2.3h6v1.6H0v-4c0.1-2.1,2.8-3.7,6.1-3.7
-              L8.5,26.2L8.5,26.2z"/>
-            <path class="st2" d="M8.5,24.1c-1.9,0-3.5-1.6-3.5-3.5s1.6-3.5,3.5-3.5c1.9,0,3.5,1.6,3.5,3.5S10.5,24.1,8.5,24.1z"/>
-            <path class="st1" d="M8.5,17.9c1.5,0,2.7,1.2,2.7,2.7s-1.2,2.7-2.7,2.7c-1.5,0-2.7-1.2-2.7-2.7S7,17.9,8.5,17.9z M8.5,16.3
-              c-2.4,0-4.3,1.9-4.3,4.3s1.9,4.3,4.3,4.3c2.4,0,4.3-1.9,4.3-4.3S10.9,16.3,8.5,16.3z"/>
-            <path class="st2" d="M31.5,24.1c-1.9,0-3.5-1.6-3.5-3.5s1.6-3.5,3.5-3.5s3.5,1.6,3.5,3.5S33.4,24.1,31.5,24.1z"/>
-            <path class="st1" d="M31.5,17.9c1.5,0,2.7,1.2,2.7,2.7s-1.2,2.7-2.7,2.7c-1.5,0-2.7-1.2-2.7-2.7S30,17.9,31.5,17.9z M31.5,16.3
-              c-2.4,0-4.3,1.9-4.3,4.3s1.9,4.3,4.3,4.3s4.3-1.9,4.3-4.3S33.9,16.3,31.5,16.3z"/>
+        <div class="col col-12 col-md-4">
+
+          
+
+          <svg class="fav-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          viewBox="0 0 40 41" style="enable-background:new 0 0 40 41;" xml:space="preserve" aria-hidden="true">
+          <style type="text/css">
+            .st0{clip-path:url(#SVGID_00000053526766090557037100000007591314763068317116_);}
+            .st1{fill:#047E2E;}
+            .st2{fill:#D9ECE0;}
+          </style>
+          <g>
+            <defs>
+              <rect id="SVGID_1_" y="0.2" width="40" height="40"/>
+            </defs>
+            <clipPath id="SVGID_00000180332622103487601240000012876395669553843603_">
+              <use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+            </clipPath>
+            <g style="clip-path:url(#SVGID_00000180332622103487601240000012876395669553843603_);">
+              <path class="st1" d="M20,23.5c-3.3,0-6-2.7-6-6s2.7-6,6-6s6,2.7,6,6S23.3,23.5,20,23.5z M20,13c-2.4,0-4.4,2-4.4,4.4
+                s2,4.4,4.4,4.4s4.4-2,4.4-4.4S22.4,13,20,13z"/>
+              <path class="st1" d="M30.8,33.8H9.2v-4.9c0.2-2.6,3.5-4.6,7.6-4.6h6.5c4.1,0,7.4,2,7.6,4.6V33.8L30.8,33.8z M10.8,32.2h18.5v-3.3
+                c-0.1-1.4-2.5-3-6-3h-6.5c-3.5,0-5.9,1.6-6,3.1V32.2L10.8,32.2z"/>
+              <path class="st2" d="M31.5,26.2c0.6,0.8,0.9,1.7,0.9,2.6v0v0v5h0H40v-4c-0.1-2.1-2.8-3.7-6.1-3.7L31.5,26.2L31.5,26.2z"/>
+              <path class="st1" d="M31.5,26.2c0.4,0.5,0.6,1,0.8,1.6H34c2.5,0,4.4,1.1,4.5,2.1v2.3h-6v1.6H40v-4c-0.1-2.1-2.8-3.7-6.1-3.7
+                L31.5,26.2L31.5,26.2z"/>
+              <path class="st2" d="M8.5,26.2C8,27,7.7,27.8,7.6,28.8v0v0v5h0H0v-4c0.1-2.1,2.8-3.7,6.1-3.7L8.5,26.2L8.5,26.2z"/>
+              <path class="st1" d="M8.5,26.2c-0.4,0.5-0.6,1-0.8,1.6H6.1c-2.5,0-4.4,1.1-4.5,2.1v2.3h6v1.6H0v-4c0.1-2.1,2.8-3.7,6.1-3.7
+                L8.5,26.2L8.5,26.2z"/>
+              <path class="st2" d="M8.5,24.1c-1.9,0-3.5-1.6-3.5-3.5s1.6-3.5,3.5-3.5c1.9,0,3.5,1.6,3.5,3.5S10.5,24.1,8.5,24.1z"/>
+              <path class="st1" d="M8.5,17.9c1.5,0,2.7,1.2,2.7,2.7s-1.2,2.7-2.7,2.7c-1.5,0-2.7-1.2-2.7-2.7S7,17.9,8.5,17.9z M8.5,16.3
+                c-2.4,0-4.3,1.9-4.3,4.3s1.9,4.3,4.3,4.3c2.4,0,4.3-1.9,4.3-4.3S10.9,16.3,8.5,16.3z"/>
+              <path class="st2" d="M31.5,24.1c-1.9,0-3.5-1.6-3.5-3.5s1.6-3.5,3.5-3.5s3.5,1.6,3.5,3.5S33.4,24.1,31.5,24.1z"/>
+              <path class="st1" d="M31.5,17.9c1.5,0,2.7,1.2,2.7,2.7s-1.2,2.7-2.7,2.7c-1.5,0-2.7-1.2-2.7-2.7S30,17.9,31.5,17.9z M31.5,16.3
+                c-2.4,0-4.3,1.9-4.3,4.3s1.9,4.3,4.3,4.3s4.3-1.9,4.3-4.3S33.9,16.3,31.5,16.3z"/>
+            </g>
           </g>
-        </g>
-        </svg>
+          </svg>
 
-        <h4 class="h4-pro">Interviews, Exclusives, <br>and Pro Talks</h4>
-        <p class="p-pro-sub">
-          Experience exclusive discussion with CNBC hosts and the leading names in investing, live or on-demand.
-        </p>
-        <p>
-          <a class="target-link" href="https://www.cnbc.com/pro/video/" target="_blank">
-            <span>Watch</span> 
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none" aria-hidden="true">
-              <path d="M2.58225 0.867188C2.25654 0.867188 1.99326 1.13294 1.99326 1.46041C1.99326 1.78786 2.25654 2.05363 2.58225 2.05363H12.3897L0.672713 13.8545C0.442429 14.0865 0.442429 14.4614 0.672713 14.6934C0.787568 14.8091 0.938352 14.8672 1.08912 14.8672C1.23992 14.8672 1.39073 14.8091 1.50558 14.6934L13.322 2.79214V12.8704C13.322 13.1979 13.5853 13.4636 13.911 13.4636C14.2368 13.4636 14.5 13.1979 14.5 12.8704V1.46041C14.5 1.13294 14.2368 0.867188 13.911 0.867188H2.58225Z" fill="#101418" stroke="#101418"/>
-            </svg>
-          </a>
-        </p>
+          <h4 class="h4-pro">Interviews, Exclusives, <br>and Pro Talks</h4>
+          <p class="p-pro-sub">
+            Experience exclusive discussion with CNBC hosts and the leading names in investing, live or on-demand.
+          </p>
+          <p>
+            <a class="target-link" href="https://www.cnbc.com/pro/video/" target="_blank">
+              <span>Watch</span> 
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none" aria-hidden="true">
+                <path d="M2.58225 0.867188C2.25654 0.867188 1.99326 1.13294 1.99326 1.46041C1.99326 1.78786 2.25654 2.05363 2.58225 2.05363H12.3897L0.672713 13.8545C0.442429 14.0865 0.442429 14.4614 0.672713 14.6934C0.787568 14.8091 0.938352 14.8672 1.08912 14.8672C1.23992 14.8672 1.39073 14.8091 1.50558 14.6934L13.322 2.79214V12.8704C13.322 13.1979 13.5853 13.4636 13.911 13.4636C14.2368 13.4636 14.5 13.1979 14.5 12.8704V1.46041C14.5 1.13294 14.2368 0.867188 13.911 0.867188H2.58225Z" fill="#101418" stroke="#101418"/>
+              </svg>
+            </a>
+          </p>
+        </div>
+
       </div>
-
     </div>
   </div>
 </div>
