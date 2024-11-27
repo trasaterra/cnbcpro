@@ -2727,50 +2727,62 @@ body {
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    // Select all play buttons and videos
-    const playButtons = document.querySelectorAll(".play-btn");
-    const videos = document.querySelectorAll(".video-container video");
+  document.addEventListener("DOMContentLoaded", function () {
+  const playButtons = document.querySelectorAll(".play-btn");
+  const videos = document.querySelectorAll(".video-container video");
 
-    playButtons.forEach(button => {
-      // Play button click event
-      button.addEventListener("click", function(event) {
-        event.preventDefault();
+  playButtons.forEach(button => {
+    button.addEventListener("click", function (event) {
+      event.preventDefault();
 
-        // Get the video within the same video container
-        const video = button.closest(".video-container").querySelector("video");
+      const video = button.closest(".video-container").querySelector("video");
 
-        // Play the video and hide the play button
-        if (video.paused) {
-          video.play();
-          button.style.display = "none";
-        }
-      });
-    });
-
-    videos.forEach(video => {
-      // Video click event to pause and show play button
-      video.addEventListener("click", function() {
-        if (!video.paused) {
-          video.pause();
-          const playButton = video.closest(".video-container").querySelector(".play-btn");
-          playButton.style.display = "block";
-        }
-      });
-
-      // Show the play button again when the video ends
-      video.addEventListener("ended", function() {
-        const playButton = video.closest(".video-container").querySelector(".play-btn");
-        playButton.style.display = "block";
-      });
-
-      // Optionally, show the play button when the video is paused
-      video.addEventListener("pause", function() {
-        const playButton = video.closest(".video-container").querySelector(".play-btn");
-        playButton.style.display = "block";
-      });
+      // Play the video and hide the play button
+      if (video.paused) {
+        video.play();
+        video.controls = true; // Keep native controls visible when playing
+        button.style.display = "none";
+      }
     });
   });
+
+  videos.forEach(video => {
+    // Video click event to toggle play/pause
+    video.addEventListener("click", function () {
+      if (!video.paused) {
+        video.pause();
+        video.controls = false; // Hide native controls when paused
+        const playButton = video.closest(".video-container").querySelector(".play-btn");
+        playButton.style.display = "block"; // Show play button
+      } else {
+        video.play();
+        video.controls = true; // Keep native controls visible when playing
+        const playButton = video.closest(".video-container").querySelector(".play-btn");
+        playButton.style.display = "none"; // Hide play button
+      }
+    });
+
+    // Show the play button again when the video ends
+    video.addEventListener("ended", function () {
+      video.controls = false; // Hide native controls when video ends
+      const playButton = video.closest(".video-container").querySelector(".play-btn");
+      playButton.style.display = "block"; // Show play button
+    });
+
+    // Show the play button when the video is paused
+    video.addEventListener("pause", function () {
+      video.controls = false; // Hide native controls when paused
+      const playButton = video.closest(".video-container").querySelector(".play-btn");
+      playButton.style.display = "block"; // Show play button
+    });
+
+    // Ensure controls are visible when the video is playing
+    video.addEventListener("play", function () {
+      video.controls = true; // Keep native controls visible when playing
+    });
+  });
+});
+
 </script>
 
 
