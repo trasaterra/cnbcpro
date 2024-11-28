@@ -404,6 +404,16 @@ body {
       box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.10);
     }
 
+    .video-container .pro-video.hide-vid-controls {
+      pointer-events: none; 
+    }
+    .video-container .pro-video.hide-vid-controls::-webkit-media-controls {
+      display: none !important
+    }
+    .video-container .pro-video.hide-vid-controls::-moz-media-controls {
+      display: none !important
+    }
+
     .text-center {
       text-align: center;
     }
@@ -2567,10 +2577,11 @@ body {
             <span>My Portfolio</span>
           </h3>
           <div class="video-container video-container-mobile">
-            <video class="pro-video" id="my-portfolio-mobile" playsinline poster="https://image.cnbcfm.com/api/v1/image/108063283-1731606655898-Portfolio_Thumbnail.webp?v=1731606700">
-              <source src="https://pdl-iphone-cnbc-com.akamaized.net/VCPS/Y2024/M02D12/7000331425/1707798987479-PROTUTORIAL_MBR_4500.mp4" type="video/mp4">
+            <img class="pro-video" src="https://image.cnbcfm.com/api/v1/image/108063283-1731606655898-Portfolio_Thumbnail.webp?v=1731606700" alt="My Portfolio Placeholder">
+            <!-- <video class="pro-video hide-vid-controls" id="my-portfolio-mobile" controls="false" playsinline poster="https://image.cnbcfm.com/api/v1/image/108063283-1731606655898-Portfolio_Thumbnail.webp?v=1731606700">
+              <source src="" type="video/mp4">
               Your browser does not support the video tag.
-            </video>
+            </video> -->
           </div>
           <p class="p-pro-sub">
             Get detailed information on your holdings with My Portfolio by securely syncing your brokerage accounts with Plaid. Review personalized news, events calendar, beta  composition, movers, and detailed holdings.  
@@ -2590,10 +2601,11 @@ body {
       <div class="col-xl-1"></div>
       <div class="col col-12 col-md-6 col-lg-8 col-xl-7 hide-col-on-mobile">
         <div class="video-container video-container-desk">
-          <video class="pro-video" id="my-portfolio" playsinline poster="https://image.cnbcfm.com/api/v1/image/108063283-1731606655898-Portfolio_Thumbnail.webp?v=1731606700">
-            <source src="https://pdl-iphone-cnbc-com.akamaized.net/VCPS/Y2024/M02D12/7000331425/1707798987479-PROTUTORIAL_MBR_4500.mp4" type="video/mp4">
+          <img class="pro-video" src="https://image.cnbcfm.com/api/v1/image/108063283-1731606655898-Portfolio_Thumbnail.webp?v=1731606700" alt="My Portfolio Placeholder">
+          <!-- <video class="pro-video hide-vid-controls" id="my-portfolio" playsinline poster="https://image.cnbcfm.com/api/v1/image/108063283-1731606655898-Portfolio_Thumbnail.webp?v=1731606700">
+            <source src="" type="video/mp4">
             Your browser does not support the video tag.
-          </video>
+          </video> -->
         </div>
       </div>
     </div>
@@ -2692,10 +2704,11 @@ body {
             Watchlist
           </h3>
           <div class="video-container video-container-mobile">
-            <video class="pro-video" id="watchlist-video-mobile" playsinline poster="https://image.cnbcfm.com/api/v1/image/108061846-1731443073040-CNBC_PRO_ONBOARDING_WL_HIGHLIGHT.webp?v=1731443100">
-              <source src="https://pdl-iphone-cnbc-com.akamaized.net/VCPS/Y2024/M02D12/7000331425/1707798987479-PROTUTORIAL_MBR_4500.mp4" type="video/mp4">
+            <img class="pro-video" src="https://image.cnbcfm.com/api/v1/image/108061846-1731443073040-CNBC_PRO_ONBOARDING_WL_HIGHLIGHT.webp?v=1731443100" alt="Watchlist Placeholder">
+            <!-- <video class="pro-video hide-vid-controls" id="watchlist-video-mobile" playsinline poster="https://image.cnbcfm.com/api/v1/image/108061846-1731443073040-CNBC_PRO_ONBOARDING_WL_HIGHLIGHT.webp?v=1731443100">
+              <source src="" type="video/mp4">
               Your browser does not support the video tag.
-            </video>
+            </video> -->
             
           </div>
           <p class="p-pro-sub">
@@ -2714,10 +2727,11 @@ body {
       <div class="col-xl-1"></div>
       <div class="col col-12 col-md-6 col-lg-8 col-xl-7">
         <div class="video-container video-container-desk">
-          <video class="pro-video" id="watchlist-video-desk" playsinline poster="https://image.cnbcfm.com/api/v1/image/108061846-1731443073040-CNBC_PRO_ONBOARDING_WL_HIGHLIGHT.webp?v=1731443100">
-            <source src="https://pdl-iphone-cnbc-com.akamaized.net/VCPS/Y2024/M02D12/7000331425/1707798987479-PROTUTORIAL_MBR_4500.mp4" type="video/mp4">
+          <img class="pro-video" src="https://image.cnbcfm.com/api/v1/image/108061846-1731443073040-CNBC_PRO_ONBOARDING_WL_HIGHLIGHT.webp?v=1731443100" alt="Watchlist Placeholder">
+          <!-- <video class="pro-video hide-vid-controls" id="watchlist-video-desk" playsinline poster="https://image.cnbcfm.com/api/v1/image/108061846-1731443073040-CNBC_PRO_ONBOARDING_WL_HIGHLIGHT.webp?v=1731443100">
+            <source src="" type="video/mp4">
             Your browser does not support the video tag.
-          </video>
+          </video> -->
         </div>
       </div>
     </div>
@@ -2731,57 +2745,78 @@ body {
   const playButtons = document.querySelectorAll(".play-btn");
   const videos = document.querySelectorAll(".video-container video");
 
-  playButtons.forEach(button => {
-    button.addEventListener("click", function (event) {
-      event.preventDefault();
-
-      const video = button.closest(".video-container").querySelector("video");
-
-      // Play the video and hide the play button
-      if (video.paused) {
-        video.play();
-        video.controls = true; // Keep native controls visible when playing
-        button.style.display = "none";
-      }
-    });
-  });
+  // Helper function to detect Safari
+  function isSafari() {
+    return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  }
 
   videos.forEach(video => {
-    // Video click event to toggle play/pause
+    const playButton = video.closest(".video-container").querySelector(".play-btn");
+
+    // Safari-specific behavior: Enable native controls and hide custom play button
+    if (isSafari()) {
+      video.controls = true; // Always enable native controls for Safari
+      if (playButton) {
+        playButton.style.display = "none"; // Hide custom play button for Safari
+      }
+      return; // Skip adding custom play button functionality for Safari
+    }
+
+    // Non-Safari: Custom play button functionality
+    if (playButton) {
+      playButton.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default behavior (e.g., scrolling to top)
+
+        if (video.paused) {
+          video.play();
+          video.controls = true; // Show native controls
+          playButton.style.display = "none"; // Hide custom play button
+        }
+      });
+    }
+
+    // Video click event to toggle play/pause for non-Safari
     video.addEventListener("click", function () {
       if (!video.paused) {
         video.pause();
-        video.controls = false; // Hide native controls when paused
-        const playButton = video.closest(".video-container").querySelector(".play-btn");
-        playButton.style.display = "block"; // Show play button
+        video.controls = false; // Hide native controls
+        if (playButton) {
+          playButton.style.display = "block"; // Show custom play button
+        }
       } else {
         video.play();
-        video.controls = true; // Keep native controls visible when playing
-        const playButton = video.closest(".video-container").querySelector(".play-btn");
-        playButton.style.display = "none"; // Hide play button
+        video.controls = true; // Show native controls
+        if (playButton) {
+          playButton.style.display = "none"; // Hide custom play button
+        }
       }
     });
 
-    // Show the play button again when the video ends
+    // Show play button when the video ends
     video.addEventListener("ended", function () {
-      video.controls = false; // Hide native controls when video ends
-      const playButton = video.closest(".video-container").querySelector(".play-btn");
-      playButton.style.display = "block"; // Show play button
+      video.controls = false; // Hide native controls
+      if (playButton) {
+        playButton.style.display = "block"; // Show custom play button
+      }
     });
 
-    // Show the play button when the video is paused
+    // Show play button when the video is paused
     video.addEventListener("pause", function () {
-      video.controls = false; // Hide native controls when paused
-      const playButton = video.closest(".video-container").querySelector(".play-btn");
-      playButton.style.display = "block"; // Show play button
+      if (playButton) {
+        playButton.style.display = "block"; // Show custom play button
+      }
     });
 
     // Ensure controls are visible when the video is playing
     video.addEventListener("play", function () {
-      video.controls = true; // Keep native controls visible when playing
+      video.controls = true; // Show native controls
     });
   });
+
+  
+
 });
+
 
 </script>
 
