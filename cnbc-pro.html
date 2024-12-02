@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -734,6 +735,27 @@ body {
      #customize.pro-section .video-container .pro-video {
       border-radius: 12px;
      }
+
+     /* Hide native controls for #customize-video only */
+    #customize-video::-webkit-media-controls {
+      display: none !important;
+    }
+    #customize-video::-webkit-media-controls-enclosure {
+      display: none !important;
+    }
+    #customize-video::-webkit-media-controls-panel {
+      display: none !important;
+    }
+    #customize-video::-moz-controls {
+      display: none !important;
+    }
+    #customize-video::-ms-controls {
+      display: none !important;
+    }
+    #customize-video {
+      overflow: hidden; /* General fallback */
+    }
+
      #customize.pro-section .h2-pro {
       font-size: 28px;
       font-weight: 700;
@@ -2850,25 +2872,32 @@ body {
     <div class="row">
       <div class="col col-12 col-md-7 order-last-md">
         <div class="video-container">
-          <video class="pro-video" id="customize-video" muted playsinline loop tabindex="0" aria-label="Video explaining how to customize the markets banner" poster="https://image.cnbcfm.com/api/v1/image/108061846-1731443073040-CNBC_PRO_ONBOARDING_WL_HIGHLIGHT.webp?v=1731443100">
-            <source src="https://pdl-iphone-cnbc-com.akamaized.net/VCPS/Y2024/M11D12/7000357764/1732132720736-C_1920_MAIN_Cropped_v04_2024-11-07_14-47_MBR_4500.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+          <video
+            class="pro-video"
+            id="customize-video"
+            muted
+            playsinline
+            loop
+            tabindex="0"
+            aria-label="Video explaining how to customize the markets banner"
             
+          >
+            <source
+              src="https://pdl-iphone-cnbc-com.akamaized.net/VCPS/Y2024/M11D12/7000357764/1732132720736-C_1920_MAIN_Cropped_v04_2024-11-07_14-47_MBR_4500.mp4"
+              type="video/mp4"
+            />
           </video>
-          <a href="" class="pause-btn">
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-               viewBox="0 0 9 12.7" style="enable-background:new 0 0 9 12.7;" xml:space="preserve">
-            <style type="text/css">
-              .st0{fill:#171717;}
-            </style>
-            <g>
-              <rect class="st0" width="3.2" height="12.7"/>
-              <rect x="5.9" class="st0" width="3.2" height="12.7"/>
-            </g>
+
+          <a href="#" class="pause-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 12.7" fill="none">
+              <g>
+                <rect width="3.2" height="12.7" fill="#171717" />
+                <rect x="5.9" width="3.2" height="12.7" fill="#171717" />
+              </g>
             </svg>
           </a>
-
         </div>
+        
       </div>
       <div class="col col-12 col-md-5 col-xl-5 order-first-md">
         <h2 class="h2-pro">Customize your Markets Banner</h2>
@@ -2892,10 +2921,13 @@ body {
  document.addEventListener("DOMContentLoaded", () => {
   const video = document.getElementById("customize-video");
   const pauseButton = document.querySelector(".pause-btn");
+  let isManual = false; // Tracks manual user control
 
-  let isManual = false; // Tracks whether the user manually controls the video
+  // Ensure video is muted and plays inline for Safari's autoplay rules
+  video.muted = true;
+  video.setAttribute("playsinline", "true");
 
-  // SVG icons
+  // SVG Icons
   const playSVG = `
     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="25" viewBox="0 0 22 25" fill="none">
       <path fill-rule="evenodd" clip-rule="evenodd" d="M21.4782 13.4861L2.5379 24.3128C2.03978 24.5976 1.39561 24.4406 1.09911 23.9623C1.00244 23.8063 0.951416 23.6282 0.951416 23.4467V1.79314C0.951416 1.23645 1.42135 0.785156 2.00104 0.785156C2.19002 0.785156 2.37551 0.834157 2.5379 0.926987L21.4782 11.7538C21.9763 12.0385 22.1398 12.6571 21.8433 13.1355C21.7539 13.2797 21.6284 13.4002 21.4782 13.4861Z" fill="#2E3337"/>
@@ -2911,56 +2943,76 @@ body {
     </svg>
   `;
 
-  // Update button SVG based on video state
+  // Update pause button icon
   const updateButton = () => {
-    if (video.paused) {
-      pauseButton.innerHTML = playSVG; // Show play button
-    } else {
-      pauseButton.innerHTML = pauseSVG; // Show pause button
-    }
+    pauseButton.innerHTML = video.paused ? playSVG : pauseSVG;
   };
 
-  // Play/Pause toggle for button click
-  const togglePlayPause = () => {
+  // Toggle video play/pause on button click
+  pauseButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    isManual = true; // User is manually controlling the video
     if (video.paused) {
       video.play();
     } else {
       video.pause();
     }
-    updateButton(); // Sync button state
-  };
-
-  // Pause button click handler
-  pauseButton.addEventListener("click", (event) => {
-    event.preventDefault(); // Prevent link default behavior
-    isManual = true; // Switch to manual control
-    togglePlayPause(); // Toggle play/pause
+    updateButton();
   });
 
-  // Auto-play using IntersectionObserver when not in manual control
+  // Function to handle viewport-based autoplay
+  const handleAutoplay = (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !isManual) {
+        video.muted = true; // Ensure muted for Safari autoplay
+        video
+          .play()
+          .then(() => console.log("Video autoplayed successfully"))
+          .catch((err) => {
+            console.error("Autoplay failed:", err);
+            // Safari-specific fallback: Force autoplay after interaction
+            video.muted = true;
+            video.play().catch(() => console.error("Safari forced autoplay failed."));
+          });
+      } else if (!entry.isIntersecting && !isManual) {
+        video.pause();
+      }
+    });
+  };
+
+  // Use IntersectionObserver for viewport detection
   if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !isManual) {
-            video.play();
-          } else if (!entry.isIntersecting && !isManual) {
-            video.pause();
-          }
-        });
-      },
-      { threshold: 0.5 } // Trigger when 50% or more is visible
-    );
+    const observer = new IntersectionObserver(handleAutoplay, {
+      threshold: 0.5, // Play when 50% of the video is visible
+    });
     observer.observe(video);
+  } else {
+    console.warn("IntersectionObserver not supported. Autoplay may not work.");
   }
 
-  // Sync button state with video play/pause events
+  // Explicitly attempt autoplay on `loadedmetadata` for Safari quirks
+  video.addEventListener("loadedmetadata", () => {
+    if (video.paused && video.muted) {
+      video
+        .play()
+        .then(() => console.log("Video started playing on loadedmetadata"))
+        .catch((err) => console.error("Autoplay on loadedmetadata failed:", err));
+    }
+  });
+
+  // Remove native controls to ensure they don't interfere
+  video.removeAttribute("controls");
+
+  // Sync button state on play/pause
   video.addEventListener("play", updateButton);
   video.addEventListener("pause", updateButton);
 
-  // Initialize button state on page load
+  // Initialize button state
   updateButton();
 });
+
+
+
 </script>
 
 
