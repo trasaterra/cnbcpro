@@ -2001,7 +2001,22 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden; /* Prevent visible overflow */
+    cursor: grab;
 }
+.carousel-wrapper:active {
+  cursor: grabbing;
+}
+
+.carousel-wrapper {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;    /* IE/Edge */
+  user-select: none;        /* Standard */
+}
+
+.carousel-slide img {
+  pointer-events: none; /* Prevent drag interactions with the image */
+}
+
 
 /* Carousel Slides */
 .carousel-slide {
