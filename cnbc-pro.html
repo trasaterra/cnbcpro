@@ -2772,9 +2772,10 @@ body {
     return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
   }
 
-  videos.forEach(video => {
+  videos.forEach((video) => {
     const playButton = video.closest(".video-container").querySelector(".play-btn");
     let customPlayTriggered = false; // Track if the custom play button was used
+    let manualPause = false; // Track if the pause was manual
 
     // Safari-specific behavior: Enable native controls and hide custom play button
     if (isSafari()) {
@@ -2800,12 +2801,15 @@ body {
     }
 
     // Video click event to toggle play/pause for non-Safari
-    video.addEventListener("click", function () {
-      if (!video.paused) {
+    video.addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent default behavior
+      if (!manualPause && !video.paused) {
         video.pause();
+        manualPause = true; // Mark this as a manual pause
       } else {
         video.play();
         video.controls = true; // Show native controls
+        manualPause = false; // Reset manual pause flag
       }
     });
 
