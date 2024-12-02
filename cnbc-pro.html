@@ -2774,6 +2774,7 @@ body {
 
   videos.forEach(video => {
     const playButton = video.closest(".video-container").querySelector(".play-btn");
+    let customPlayTriggered = false; // Track if the custom play button was used
 
     // Safari-specific behavior: Enable native controls and hide custom play button
     if (isSafari()) {
@@ -2793,6 +2794,7 @@ body {
           video.play();
           video.controls = true; // Show native controls
           playButton.style.display = "none"; // Hide custom play button
+          customPlayTriggered = true; // Mark that the custom play button was triggered
         }
       });
     }
@@ -2801,16 +2803,9 @@ body {
     video.addEventListener("click", function () {
       if (!video.paused) {
         video.pause();
-        video.controls = false; // Hide native controls
-        if (playButton) {
-          playButton.style.display = "block"; // Show custom play button
-        }
       } else {
         video.play();
         video.controls = true; // Show native controls
-        if (playButton) {
-          playButton.style.display = "none"; // Hide custom play button
-        }
       }
     });
 
@@ -2819,12 +2814,13 @@ body {
       video.controls = false; // Hide native controls
       if (playButton) {
         playButton.style.display = "block"; // Show custom play button
+        customPlayTriggered = false; // Reset custom play button trigger state
       }
     });
 
-    // Show play button when the video is paused
+    // Conditionally show play button when the video is paused
     video.addEventListener("pause", function () {
-      if (playButton) {
+      if (!customPlayTriggered && playButton) {
         playButton.style.display = "block"; // Show custom play button
       }
     });
@@ -2834,10 +2830,8 @@ body {
       video.controls = true; // Show native controls
     });
   });
-
-  
-
 });
+
 
 
 </script>
@@ -2877,7 +2871,8 @@ body {
             id="customize-video"
             muted
             playsinline
-            loop
+            loop 
+             
             tabindex="0"
             aria-label="Video explaining how to customize the markets banner"
             
@@ -2923,7 +2918,10 @@ body {
   const pauseButton = document.querySelector(".pause-btn");
   let isManual = false; // Tracks manual user control
 
-  // Ensure video is muted and plays inline for Safari's autoplay rules
+  // Detect Safari browser
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+  // Ensure video is muted and plays inline for autoplay rules
   video.muted = true;
   video.setAttribute("playsinline", "true");
 
@@ -2948,6 +2946,12 @@ body {
     pauseButton.innerHTML = video.paused ? playSVG : pauseSVG;
   };
 
+  // Ensure .pause-btn is always visible on Safari
+  if (isSafari) {
+    pauseButton.style.opacity = "1"; // Keep button visible
+    pauseButton.style.pointerEvents = "auto"; // Ensure clickability
+  }
+
   // Toggle video play/pause on button click
   pauseButton.addEventListener("click", (e) => {
     e.preventDefault();
@@ -2960,45 +2964,34 @@ body {
     updateButton();
   });
 
-  // Function to handle viewport-based autoplay
-  const handleAutoplay = (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting && !isManual) {
-        video.muted = true; // Ensure muted for Safari autoplay
-        video
-          .play()
-          .then(() => console.log("Video autoplayed successfully"))
-          .catch((err) => {
-            console.error("Autoplay failed:", err);
-            // Safari-specific fallback: Force autoplay after interaction
-            video.muted = true;
-            video.play().catch(() => console.error("Safari forced autoplay failed."));
-          });
-      } else if (!entry.isIntersecting && !isManual) {
-        video.pause();
-      }
+  // Autoplay logic
+  if (isSafari) {
+    video.addEventListener("loadedmetadata", () => {
+      video
+        .play()
+        .then(() => console.log("Safari: Video autoplayed successfully"))
+        .catch((err) => console.error("Safari autoplay failed:", err));
     });
-  };
-
-  // Use IntersectionObserver for viewport detection
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(handleAutoplay, {
-      threshold: 0.5, // Play when 50% of the video is visible
-    });
+  } else if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isManual) {
+            video
+              .play()
+              .then(() => console.log("Video autoplayed successfully"))
+              .catch((err) => console.error("Autoplay failed:", err));
+          } else if (!entry.isIntersecting && !isManual) {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
     observer.observe(video);
   } else {
     console.warn("IntersectionObserver not supported. Autoplay may not work.");
   }
-
-  // Explicitly attempt autoplay on `loadedmetadata` for Safari quirks
-  video.addEventListener("loadedmetadata", () => {
-    if (video.paused && video.muted) {
-      video
-        .play()
-        .then(() => console.log("Video started playing on loadedmetadata"))
-        .catch((err) => console.error("Autoplay on loadedmetadata failed:", err));
-    }
-  });
 
   // Remove native controls to ensure they don't interfere
   video.removeAttribute("controls");
@@ -3009,8 +3002,14 @@ body {
 
   // Initialize button state
   updateButton();
-});
 
+  video.addEventListener("canplay", () => {
+    video
+      .play()
+      .then(() => console.log("Safari: Video autoplayed successfully"))
+      .catch((err) => console.error("Safari autoplay failed:", err));
+  });
+});
 
 
 </script>
