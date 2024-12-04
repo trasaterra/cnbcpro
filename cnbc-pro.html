@@ -2220,14 +2220,21 @@ body {
   }
 
   #stay-informed.pro-section.gray-container {
-    height:100vh;
+   
   }
+ 
   .informed-scroll-container {
-    height:100vh;
-    overflow: scroll;
+    margin-bottom:20px;
+    
   }
   .tooltip {
     position: inherit;
+  }
+  .informed-tile {
+    margin-bottom:0;
+  }
+  .informed-gradient {
+    display: none;
   }
 
 }
@@ -2236,12 +2243,35 @@ body {
   .informed-scroll-container {
     height:100vh;
   }
-  .tool-tip-wrapper.sticky-active {
+  /* .tool-tip-wrapper.sticky-active {
     position: inherit;
   }
   .tooltip {
     position: inherit !important;
+  } */
+  #stay-informed.pro-section {
+   
   }
+  .informed-tile {
+    margin-bottom: 0;
+  }
+  .informed-gradient {
+    height:100px;
+  }
+
+  .informed-scroll-container {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+
+  .informed-scroll-container.unpinned {
+    position: relative;
+    top: auto;
+  }
+
+  
 }
 
 
@@ -3289,7 +3319,8 @@ body {
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  if (window.innerWidth <= 768) {
+  // Functionality for tool-tip-wrapper (existing code)
+  if (window.innerWidth <= 767) {
     const toolTipWrappers = document.querySelectorAll('.tool-tip-wrapper');
     const scrollContainer = document.querySelector('.informed-scroll-container');
 
@@ -3309,8 +3340,29 @@ document.addEventListener("DOMContentLoaded", function () {
     toolTipWrappers.forEach(wrapper => {
       observer.observe(wrapper);
     });
+
+    // NEW: Sticky logic for .informed-scroll-container
+    let isPinned = true;
+
+    scrollContainer.addEventListener('scroll', () => {
+      const scrollHeight = scrollContainer.scrollHeight;
+      const scrollTop = scrollContainer.scrollTop;
+      const containerHeight = scrollContainer.clientHeight;
+
+      // Check if fully scrolled
+      if (scrollTop + containerHeight >= scrollHeight) {
+        scrollContainer.classList.add('unpinned');
+        scrollContainer.classList.remove('sticky-active');
+        isPinned = false;
+      } else if (!isPinned) {
+        scrollContainer.classList.remove('unpinned');
+        scrollContainer.classList.add('sticky-active');
+        isPinned = true;
+      }
+    });
   }
 });
+
 </script>
 
 
