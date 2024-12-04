@@ -2237,6 +2237,33 @@ body {
     display: none;
   }
 
+/* Sticky behavior for .pro-col-wrapper */
+.pro-col-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  width: 355px;
+}
+
+/* Sticky-active: Keeps the pro-col-wrapper pinned */
+.pro-col-wrapper.sticky-active {
+  position: fixed;
+  top: 0;
+   /* Match layout requirements */
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* Unpinned: Restores default relative positioning */
+.pro-col-wrapper.unpinned {
+  position: relative;
+  top: auto;
+}
+
+
+
+
 }
 
 @media (max-width:767px) {
@@ -3115,20 +3142,23 @@ body {
 
     <div class="row">
       <div class="col col-12 col-md-6 col-lg-12">
-        <h2 class="h2-pro text-center-lg">Pro Newsletters Keep You Informed 24/7</h2>
-        <p class="p-pro text-center-lg">
-          Stay up to date with the latest analysis of breaking news and market movements throughout the day with Pro newsletters. Miss one? Find it by visiting our Pro Playbook section.
-        </p>
+        <div class="pro-col-wrapper">
+          <h2 class="h2-pro text-center-lg">Pro Newsletters Keep You Informed 24/7</h2>
+          <p class="p-pro text-center-lg">
+            Stay up to date with the latest analysis of breaking news and market movements throughout the day with Pro newsletters. Miss one? Find it by visiting our Pro Playbook section.
+          </p>
+        
 
-        <div class="row informed-target-wrap">
-          <div class="col col-12">
-            <p class="text-center-lg">
-              <a class="target-link" href="https://www.cnbc.com/cnbc-pro-playbooks-and-newsletters/" target="_blank">
-                <span>View Playbooks</span> 
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none" aria-hidden="true">
-                  <path d="M2.58225 0.867188C2.25654 0.867188 1.99326 1.13294 1.99326 1.46041C1.99326 1.78786 2.25654 2.05363 2.58225 2.05363H12.3897L0.672713 13.8545C0.442429 14.0865 0.442429 14.4614 0.672713 14.6934C0.787568 14.8091 0.938352 14.8672 1.08912 14.8672C1.23992 14.8672 1.39073 14.8091 1.50558 14.6934L13.322 2.79214V12.8704C13.322 13.1979 13.5853 13.4636 13.911 13.4636C14.2368 13.4636 14.5 13.1979 14.5 12.8704V1.46041C14.5 1.13294 14.2368 0.867188 13.911 0.867188H2.58225Z" fill="#101418" stroke="#101418"/>
-                </svg>
-              </a>
+          <div class="row informed-target-wrap">
+            <div class="col col-12">
+              <p class="text-center-lg">
+                <a class="target-link" href="https://www.cnbc.com/cnbc-pro-playbooks-and-newsletters/" target="_blank">
+                  <span>View Playbooks</span> 
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none" aria-hidden="true">
+                    <path d="M2.58225 0.867188C2.25654 0.867188 1.99326 1.13294 1.99326 1.46041C1.99326 1.78786 2.25654 2.05363 2.58225 2.05363H12.3897L0.672713 13.8545C0.442429 14.0865 0.442429 14.4614 0.672713 14.6934C0.787568 14.8091 0.938352 14.8672 1.08912 14.8672C1.23992 14.8672 1.39073 14.8091 1.50558 14.6934L13.322 2.79214V12.8704C13.322 13.1979 13.5853 13.4636 13.911 13.4636C14.2368 13.4636 14.5 13.1979 14.5 12.8704V1.46041C14.5 1.13294 14.2368 0.867188 13.911 0.867188H2.58225Z" fill="#101418" stroke="#101418"/>
+                  </svg>
+                </a>
+            </div>
           </div>
         </div>
 
@@ -3312,28 +3342,77 @@ body {
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  if (window.innerWidth <= 768) {
-    const toolTipWrappers = document.querySelectorAll('.tool-tip-wrapper');
-    const scrollContainer = document.querySelector('.informed-scroll-container');
+  const activateStickyFeature = () => {
+    const proColWrapper = document.querySelector('.pro-col-wrapper');
+    const stayInformed = document.getElementById('stay-informed');
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('sticky-active');
-        } else {
-          entry.target.classList.remove('sticky-active');
-        }
+    // Ensure required elements are found
+    if (!proColWrapper || !stayInformed) {
+      console.error('Required elements not found: #stay-informed or .pro-col-wrapper');
+      return;
+    }
+
+    // Check if within the specified breakpoint
+    const isWithinBreakpoint = window.innerWidth >= 768 && window.innerWidth <= 991;
+
+    // Clean up previous listeners and classes outside the breakpoint
+    const cleanUp = () => {
+      proColWrapper.classList.remove('sticky-active', 'unpinned');
+      window.removeEventListener('scroll', handleScroll);
+    };
+
+    if (!isWithinBreakpoint) {
+      cleanUp();
+      return;
+    }
+
+    // Scroll handling logic
+    const handleScroll = () => {
+      const rect = stayInformed.getBoundingClientRect();
+      const wrapperHeight = proColWrapper.offsetHeight;
+      const bufferZone = 100; // Adjust this value for additional spacing
+
+      // Adjust for wrapper height and buffer zone
+      const shouldUnpin = rect.bottom <= wrapperHeight + bufferZone;
+      const shouldPin = rect.top <= 0 && rect.bottom > wrapperHeight + bufferZone;
+
+      if (shouldUnpin) {
+        proColWrapper.classList.add('unpinned');
+        proColWrapper.classList.remove('sticky-active');
+      } else if (shouldPin) {
+        proColWrapper.classList.add('sticky-active');
+        proColWrapper.classList.remove('unpinned');
+      } else {
+        // Default state when not in the sticky range
+        proColWrapper.classList.remove('sticky-active', 'unpinned');
+      }
+
+      // Debugging outputs
+      console.log({
+        'stayInformed top': rect.top,
+        'stayInformed bottom': rect.bottom,
+        'wrapper height': wrapperHeight,
+        'buffer zone': bufferZone,
+        shouldUnpin,
+        shouldPin,
       });
-    }, {
-      root: scrollContainer,
-      threshold: 1.0
-    });
+    };
 
-    toolTipWrappers.forEach(wrapper => {
-      observer.observe(wrapper);
-    });
-  }
+    // Attach scroll listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Trigger scroll logic immediately on load
+    handleScroll();
+  };
+
+  // Run the feature activation on load
+  activateStickyFeature();
+
+  // Re-trigger on window resize
+  window.addEventListener('resize', activateStickyFeature);
 });
+
+
 </script>
 
 
