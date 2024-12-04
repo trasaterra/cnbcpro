@@ -2241,36 +2241,25 @@ body {
 
 @media (max-width:767px) {
   .informed-scroll-container {
-    height:100vh;
+    height:auto;
+    margin-bottom:0;
   }
-  /* .tool-tip-wrapper.sticky-active {
+  .tool-tip-wrapper.sticky-active {
     position: inherit;
   }
   .tooltip {
     position: inherit !important;
-  } */
+  }
   #stay-informed.pro-section {
-   
+   padding-bottom:0;
   }
   .informed-tile {
-    margin-bottom: 0;
+    margin-bottom: -10px;
   }
   .informed-gradient {
-    height:100px;
+    height:50px;
+    display:none;
   }
-
-  .informed-scroll-container {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    transition: all 0.3s ease;
-  }
-
-  .informed-scroll-container.unpinned {
-    position: relative;
-    top: auto;
-  }
-
   
 }
 
@@ -3319,8 +3308,7 @@ body {
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // Functionality for tool-tip-wrapper (existing code)
-  if (window.innerWidth <= 767) {
+  if (window.innerWidth <= 768) {
     const toolTipWrappers = document.querySelectorAll('.tool-tip-wrapper');
     const scrollContainer = document.querySelector('.informed-scroll-container');
 
@@ -3340,29 +3328,8 @@ document.addEventListener("DOMContentLoaded", function () {
     toolTipWrappers.forEach(wrapper => {
       observer.observe(wrapper);
     });
-
-    // NEW: Sticky logic for .informed-scroll-container
-    let isPinned = true;
-
-    scrollContainer.addEventListener('scroll', () => {
-      const scrollHeight = scrollContainer.scrollHeight;
-      const scrollTop = scrollContainer.scrollTop;
-      const containerHeight = scrollContainer.clientHeight;
-
-      // Check if fully scrolled
-      if (scrollTop + containerHeight >= scrollHeight) {
-        scrollContainer.classList.add('unpinned');
-        scrollContainer.classList.remove('sticky-active');
-        isPinned = false;
-      } else if (!isPinned) {
-        scrollContainer.classList.remove('unpinned');
-        scrollContainer.classList.add('sticky-active');
-        isPinned = true;
-      }
-    });
   }
 });
-
 </script>
 
 
