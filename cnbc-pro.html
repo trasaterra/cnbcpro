@@ -1759,14 +1759,14 @@ body {
         align-items: center;
       }
       .tool-tip-column::before {
-        top: 66px; /* Center the line vertically */
-        left: 65%; /* Align the line with the left side */
+        top: 66px; 
+        left: 65%;
         transform: translateY(-50%);
-        width: 72%; /* Full width for a horizontal line */
-        height: 4px; /* Thickness of the line for horizontal view */
+        width: 72%; 
+        height: 4px;
         background-color: rgba(186, 217, 197, 0.5);
       }
-      .tool-tip-column.no-line::before, {
+      .tool-tip-column.no-line::before {
         background-color: transparent;
       }
       .informed-icon {
@@ -2695,11 +2695,16 @@ body {
             <span>My Portfolio</span>
           </h3>
           <div class="video-container video-container-mobile">
-            <img class="pro-video" src="https://image.cnbcfm.com/api/v1/image/108063283-1731606655898-Portfolio_Thumbnail.webp?v=1731606700" alt="My Portfolio Placeholder">
-            <!-- <video class="pro-video hide-vid-controls" id="my-portfolio-mobile" controls="false" playsinline poster="https://image.cnbcfm.com/api/v1/image/108063283-1731606655898-Portfolio_Thumbnail.webp?v=1731606700">
-              <source src="" type="video/mp4">
+            
+            <video class="pro-video" id="my-portfolio-mobile" controls="false" playsinline poster="https://image.cnbcfm.com/api/v1/image/108063283-1731606655898-Portfolio_Thumbnail.webp?v=1731606700">
+              <source src="https://pdl-iphone-cnbc-com.akamaized.net/VCPS/Y2024/M12D04/7000359889/1733341169087-1121PortfolioToolTutorial_MBR_4500.mp4" type="video/mp4">
               Your browser does not support the video tag.
-            </video> -->
+            </video>
+            <a class="play-btn" href="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="39" viewBox="0 0 40 39" fill="none" aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M30.1968 20.0719L11.2565 30.8987C10.7584 31.1834 10.1142 31.0264 9.81773 30.5481C9.72107 30.3921 9.67004 30.214 9.67004 30.0325V8.37896C9.67004 7.82226 10.14 7.37097 10.7197 7.37097C10.9087 7.37097 11.0941 7.41997 11.2565 7.5128L30.1968 18.3396C30.695 18.6243 30.8584 19.2429 30.5619 19.7213C30.4725 19.8655 30.347 19.986 30.1968 20.0719Z" fill="#2E3337"/>
+            </svg>
+          </a>
           </div>
           <p class="p-pro-sub">
             Get detailed information on your holdings with My Portfolio by securely syncing your brokerage accounts with Plaid. Review personalized news, events calendar, beta  composition, movers, and detailed holdings.  
@@ -2719,11 +2724,16 @@ body {
       <div class="col-xl-1"></div>
       <div class="col col-12 col-md-6 col-lg-8 col-xl-7 hide-col-on-mobile">
         <div class="video-container video-container-desk">
-          <img class="pro-video" src="https://image.cnbcfm.com/api/v1/image/108063283-1731606655898-Portfolio_Thumbnail.webp?v=1731606700" alt="My Portfolio Placeholder">
-          <!-- <video class="pro-video hide-vid-controls" id="my-portfolio" playsinline poster="https://image.cnbcfm.com/api/v1/image/108063283-1731606655898-Portfolio_Thumbnail.webp?v=1731606700">
-            <source src="" type="video/mp4">
+          
+          <video class="pro-video" id="my-portfolio" playsinline poster="https://image.cnbcfm.com/api/v1/image/108063283-1731606655898-Portfolio_Thumbnail.webp?v=1731606700">
+            <source src="https://pdl-iphone-cnbc-com.akamaized.net/VCPS/Y2024/M12D04/7000359889/1733341169087-1121PortfolioToolTutorial_MBR_4500.mp4" type="video/mp4">
             Your browser does not support the video tag.
-          </video> -->
+          </video>
+          <a class="play-btn" href="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="39" viewBox="0 0 40 39" fill="none" aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M30.1968 20.0719L11.2565 30.8987C10.7584 31.1834 10.1142 31.0264 9.81773 30.5481C9.72107 30.3921 9.67004 30.214 9.67004 30.0325V8.37896C9.67004 7.82226 10.14 7.37097 10.7197 7.37097C10.9087 7.37097 11.0941 7.41997 11.2565 7.5128L30.1968 18.3396C30.695 18.6243 30.8584 19.2429 30.5619 19.7213C30.4725 19.8655 30.347 19.986 30.1968 20.0719Z" fill="#2E3337"/>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
@@ -2980,7 +2990,7 @@ body {
             <source
               src="https://pdl-iphone-cnbc-com.akamaized.net/VCPS/Y2024/M11D12/7000357764/1732132720736-C_1920_MAIN_Cropped_v04_2024-11-07_14-47_MBR_4500.mp4"
               type="video/mp4"
-            />
+            >
           </video>
 
           <a href="#" class="pause-btn">
